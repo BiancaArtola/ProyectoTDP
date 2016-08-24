@@ -1,0 +1,32 @@
+El jugador se movera presionando las flechas del teclado
+	Si PresionaTeclaArriba
+		Si celdaArriba esTransitable  //Para que una celda sea transitable tiene que contener pasto o estar vacia, en cualquier otro caso (powerUp,ladrillos,bloques,agua,limites)
+			moverArriba
+		Sino 
+			Si hayPowerUp(celdaArriba)
+				obtenerPU(celdaArriba)
+				moverArriba
+	Sino
+		Si PresionaTeclaAbajo
+			Si celdaAbajo esTransitable
+				moverAbajo
+			Sino
+				Si hayPowerUp(celdaAbajo)
+					obtenerPU(celdaAbajo)
+					moverAbajo			 
+		Sino
+			Si PresionaTeclaIzq
+				Si celdaIzquierda esTransitable
+					moverIzquierda
+				Sino
+					Si hayPowerUp(celdaIzquierda)
+						obtenerPU(celdaIzquierda)
+						moverIzquierda
+			Sino
+				Si PresionaTeclaDer
+					Si celdaDerecha esTransitable
+						moverDerecha
+					Sino
+						Si hayPowerUp(celdaDerecha)
+							obtenerPU(celdaDerecha)
+							moverDerecha	
