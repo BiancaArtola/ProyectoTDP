@@ -1,0 +1,14 @@
+El mapa estara conformado por una grilla de 14x14
+
+Habra que recorrer cada una de las celdas determinar que tipo de textura contendra, esto esta determinado por un numero aleatorio entre 0 y 15
+
+Tipos
+	0..5:Fondo negro
+	6..9:Ladrillos
+	10..12:Arboles
+	13..14:Bloques
+	15:Agua
+
+En el primer nivel solo estaran disponibles el tipo 0 y el tipo 1
+
+Luego en los siguientes niveles estaran disponibles todas las texturas
