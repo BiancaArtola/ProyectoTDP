@@ -1,0 +1,3 @@
+Cada enemigo se movera para adelante hasta que choca con algun obstaculo y en ese caso girara para la izquierda o la derecha en forma aleatoria, luego de un
+tiempo alguno de los enemigos atacara el aguila, si el tanque es nivel 1 o nivel 2 solo 1 tanque podra atacarla,en el nivel 3 podran ser como maximo 2 
+los atacantes y en el 4 seran 4. Los enemigos se dirigiran al aguila hasta destruirla o ser destruidos.

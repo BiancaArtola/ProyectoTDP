@@ -12,3 +12,17 @@ Tipos
 En el primer nivel solo estaran disponibles el tipo 0 y el tipo 1
 
 Luego en los siguientes niveles estaran disponibles todas las texturas
+
+O cargarlo de un archivo de texto en el que cada caracter represente una celda del mapa 
+
+0L0L0L0L0L0L0L
+L0L0L0L0L0L0L0
+PPP000PPP000LL
+PPP000PPP000LL
+...
+
+0:Vacio
+L:Ladrillo
+P:Pasto
+B:Bloque
+A:Agua
