@@ -6,7 +6,7 @@ Tipos
 	0..5:Fondo negro
 	6..9:Ladrillos
 	10..12:Arboles
-	13..14:Bloques
+	13..14:Bloques de acero
 	15:Agua
 
 En el primer nivel solo estaran disponibles el tipo 0 y el tipo 1
