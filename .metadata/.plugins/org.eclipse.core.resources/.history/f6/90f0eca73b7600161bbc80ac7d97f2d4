@@ -1,0 +1,7 @@
+package Objetos;
+
+import Objetos.GameObject;
+
+public abstract class PowerUp extends GameObject {
+
+}
