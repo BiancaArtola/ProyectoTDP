@@ -1,5 +1,6 @@
 package Logica;
 
+import java.awt.Container;
 import java.io.*;
 import java.util.Scanner;
 
@@ -13,7 +14,7 @@ public class Mapa {
 	private PowerUp[] pu;
 	private Obstaculo[] o;
 	
-	public Mapa(File f, JPanel p){
+	public Mapa(File f, Container container){
 		try{
 			Scanner file = new Scanner(f);
 			String linea;
@@ -23,19 +24,19 @@ public class Mapa {
 					char crt= linea.charAt(i);
 						switch(crt){
 							case '0':
-								p.add(new JLabel("vacio.png"));
+								container.add(new JLabel("vacio.png"));
 								break;
 							case 'l':
-								p.add(new JLabel("ladrillo.png"));
+								container.add(new JLabel("ladrillo.png"));
 								break;
 							case 'p':
-								p.add(new JLabel("pasto.png"));
+								container.add(new JLabel("pasto.png"));
 								break;
 							case 'b':
-								p.add(new JLabel("bloque.png"));
+								container.add(new JLabel("bloque.png"));
 								break;
 							case 'a':
-								p.add(new JLabel("agua.png"));
+								container.add(new JLabel("agua.png"));
 								break;
 						}
 				}

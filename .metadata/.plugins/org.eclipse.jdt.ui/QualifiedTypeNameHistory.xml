@@ -3,4 +3,8 @@
 <fullyQualifiedTypeName name="Objetos.Jugador"/>
 <fullyQualifiedTypeName name="Objetos.Punto"/>
 <fullyQualifiedTypeName name="Logica.General"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="javax.swing.JPanel"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>

@@ -39,7 +39,8 @@ public class G extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
-		juego.crearMapa(getContentPane().);
+		JLabel lblNewLabel = new JLabel("New label");
+		getContentPane().add(lblNewLabel, BorderLayout.NORTH);
 		JLabel player=new JLabel(juego.getImagenJugador());
 		getContentPane().add(player);
 	}
