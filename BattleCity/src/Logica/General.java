@@ -1,10 +1,15 @@
 package Logica;
 
+import java.awt.Container;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import GUI.G;
 import Objetos.*;
 
 public class General {
@@ -16,7 +21,7 @@ public class General {
 	
 	public General(){
 		p=new Jugador();
-		malos=(Enemigo[]) new Object[4];
+		malos=new Enemigo[4];
 		for (int i=0;i<4;i++){
 			malos[i]=new TanqueBasico();
 		}
@@ -33,8 +38,14 @@ public class General {
 		return i;
 	}
 	
-	public void crearMapa(JPanel p){
-		File f=new File("mapa.txt");
-		mapa=new Mapa(f,p);
+	public void crearMapa(G container){
+		FileReader f=null;
+		try {
+			f = new FileReader("mapa.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mapa=new Mapa(f,container);
 	}
 }

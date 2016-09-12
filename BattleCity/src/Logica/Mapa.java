@@ -1,10 +1,12 @@
 package Logica;
 
+import java.awt.Container;
 import java.io.*;
 import java.util.Scanner;
 
 import javax.swing.*;
 
+import GUI.G;
 import Objetos.*;
 
 public class Mapa {
@@ -13,35 +15,36 @@ public class Mapa {
 	private PowerUp[] pu;
 	private Obstaculo[] o;
 	
-	public Mapa(File f, JPanel p){
-		try{
-			Scanner file = new Scanner(f);
+	public Mapa(FileReader f, G container){
+			try{BufferedReader file=new BufferedReader(f);
 			String linea;
 			for(int j=0; j<14; j++){
-				linea= file.nextLine();
+				linea= file.readLine();
 				for(int i=0; i<14; i++){
 					char crt= linea.charAt(i);
 						switch(crt){
 							case '0':
-								p.add(new JLabel("vacio.png"));
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Imagenes/vacio.png"))));
 								break;
-							case 'l':
-								p.add(new JLabel("ladrillo.png"));
+							/*case 'l':
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/imagenes/ladrillo.png"))));
 								break;
 							case 'p':
-								p.add(new JLabel("pasto.png"));
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/imagenes/pasto.png"))));
 								break;
 							case 'b':
-								p.add(new JLabel("bloque.png"));
-								break;
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/imagenes/bloque.png"))))
+								break;*/
 							case 'a':
-								p.add(new JLabel("agua.png"));
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Imagenes/agua.png"))));
 								break;
 						}
 				}
 			}
 			file.close();
-			}catch(FileNotFoundException e){}
+			}
+			catch (IOException e){}
+
 	}
 	
 	
