@@ -39,7 +39,7 @@ public class G extends JFrame {
 	 */
 	public G() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 750);
+		setBounds(100, 100, 450, 300);
 		juego=new General();
 		juego.crearMapa(this);
 		getContentPane().setLayout(new GridLayout(14, 14, 0, 0));

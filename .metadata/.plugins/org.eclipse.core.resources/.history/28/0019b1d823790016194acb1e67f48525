@@ -24,17 +24,17 @@ public class Mapa {
 					char crt= linea.charAt(i);
 						switch(crt){
 							case '0':
-								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Images/vacio.png"))));
-								break;
-							case 'l':
-								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Images/Battle_City_bricks.png"))));
-								break;
-							case 'p':
-								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Images/Battle_City_trees.png"))));
-								break;
-							case 'b':
 								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Images/Battle_City_wall.png"))));
 								break;
+							/*case 'l':
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/imagenes/ladrillo.png"))));
+								break;
+							case 'p':
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/imagenes/pasto.png"))));
+								break;
+							case 'b':
+								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/imagenes/bloque.png"))))
+								break;*/
 							case 'a':
 								container.add(new JLabel(new ImageIcon(this.getClass().getResource("/Images/Battle_City_water.png"))));
 								break;
