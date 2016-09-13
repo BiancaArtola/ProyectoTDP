@@ -9,13 +9,9 @@ public abstract class Tanque extends GameObject{
 	
 	public abstract Disparo disparar();
 	
-	public void moverArriba(){}
-	
-	public void moverAbajo(){}
-	
-	public void moverIzquierda(){}
-	
-	public void moverDerecha(){}
+	public void mover(int x){
+		posicion.s
+	}
 	
 	public void destruir(){}
 }

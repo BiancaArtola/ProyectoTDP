@@ -1,0 +1,20 @@
+package Objetos;
+
+import javax.swing.ImageIcon;
+
+public class Pasto extends Obstaculo {
+
+	public Pasto(Punto p,ImageIcon i){
+		posicion=p;
+		imagen=i;
+	}
+	
+	
+	
+	@Override
+	public void colisionar() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

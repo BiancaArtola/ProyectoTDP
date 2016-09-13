@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
@@ -12,6 +13,8 @@ import javax.swing.border.EmptyBorder;
 import Logica.General;
 
 import javax.swing.JLabel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class G extends JFrame {
 
@@ -39,9 +42,26 @@ public class G extends JFrame {
 	 */
 	public G() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 750);
+		setBounds(100, 100, 930, 975);
 		juego=new General();
+		getContentPane().setLayout(null);
+		getContentPane().setLayout(null);
 		juego.crearMapa(this);
-		getContentPane().setLayout(new GridLayout(14, 14, 0, 0));
+		JLabel j=new JLabel(juego.getImagenJugador()[1]);
+		j.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent k) {
+				//if (k=VK
+			}
+		});
+		j.setSize(64,64);
+		j.setLocation(0,0);
+		this.getContentPane().add(j);
+		this.getContentPane().setComponentZOrder(j,0);
+		//j.setComponentZOrder(this,0);
+		
+		
+		
+		//getContentPane().setLayout(new FlowLayout());
 	}
 }

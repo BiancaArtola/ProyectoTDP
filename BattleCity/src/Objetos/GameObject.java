@@ -1,18 +1,21 @@
 package Objetos;
 
+import java.awt.Point;
+
 import javax.swing.ImageIcon;
 
 public abstract class GameObject {
 
 	
-	protected Punto posicion;
-	protected ImageIcon imagen;
+	protected Point posicion;
+	protected ImageIcon[] imagen;
 	
-	public Punto getPosicion(){
+	
+	public Point getPosicion(){
 		return posicion;
 	}
 	
-	public ImageIcon getImagen(){
+	public ImageIcon[] getImagen(){
 		return imagen;
 	}
 	
