@@ -51,7 +51,7 @@ public class G extends JFrame {
 		JLabel j=new JLabel(juego.getImagenJugador()[1]);
 		this.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyReleased(KeyEvent k) {
+			public void keyPressed(KeyEvent k) {
 				int valor=k.getKeyCode();
 				ImageIcon i=cambiarLabel(valor);
 				j.setIcon(i);
