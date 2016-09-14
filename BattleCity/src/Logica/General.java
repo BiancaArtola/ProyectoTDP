@@ -1,5 +1,7 @@
 package Logica;
 
+import java.awt.Point;
+import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
@@ -41,5 +43,31 @@ public class General {
 			container.add(new JLabel("Archivo no encontrado"));
 		}
 		mapa=new Mapa(f,container);
+	}
+
+	public ImageIcon moverTanque(int valor) {
+		int index=0;
+		switch (valor){
+			case KeyEvent.VK_UP:
+				p.mover(0);
+				break;
+			case KeyEvent.VK_DOWN:
+				p.mover(1);
+				index=1;
+				break;
+			case KeyEvent.VK_LEFT:
+				p.mover(2);
+				index=2;
+				break;
+			case KeyEvent.VK_RIGHT:
+				p.mover(3);
+				index=3;
+				break;
+		}
+		return p.actualizarImagen(index);
+	}
+	
+	public Point getPuntoJugador(){
+		return p.getPosicion();
 	}
 }

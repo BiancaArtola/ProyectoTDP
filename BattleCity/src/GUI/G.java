@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -48,10 +49,17 @@ public class G extends JFrame {
 		getContentPane().setLayout(null);
 		juego.crearMapa(this);
 		JLabel j=new JLabel(juego.getImagenJugador()[1]);
-		j.addKeyListener(new KeyAdapter() {
+		this.addKeyListener(new KeyAdapter() {
 			@Override
-			public void keyPressed(KeyEvent k) {
-				//if (k=VK
+			public void keyReleased(KeyEvent k) {
+				int valor=k.getKeyCode();
+				ImageIcon i=cambiarLabel(valor);
+				j.setIcon(i);
+				j.setLocation(juego.getPuntoJugador());
+				//JLabel pos=new JLabel(String.valueOf(juego.getPuntoJugador().getX())+","+String.valueOf(juego.getPuntoJugador().getY()));
+				//add(pos);
+				//pos.setLocation(1000,1000);
+				//pos.setSize(100,100);
 			}
 		});
 		j.setSize(64,64);
@@ -63,5 +71,12 @@ public class G extends JFrame {
 		
 		
 		//getContentPane().setLayout(new FlowLayout());
+	}
+	
+	private ImageIcon cambiarLabel(int v){
+		ImageIcon i=juego.moverTanque(v);
+		this.repaint();
+		return i;
+		
 	}
 }
