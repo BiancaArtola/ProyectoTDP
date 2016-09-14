@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-
-
 import GUI.G;
 import Objetos.*;
 import TDALista.*;

@@ -10,6 +10,7 @@ public abstract class Tanque extends GameObject{
 	public abstract Disparo disparar();
 	
 	public void mover(int x){
+		posicion.s
 	}
 	
 	public void destruir(){}

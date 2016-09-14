@@ -7,8 +7,6 @@ import java.util.Scanner;
 
 import javax.swing.*;
 
-
-
 import GUI.G;
 import Objetos.*;
 import TDALista.*;
@@ -22,7 +20,7 @@ public class Mapa {
 	public Mapa(FileReader f, G container){
 		m=new Point[14][14];
 		pu=new PowerUp[4];
-		o=new DoubleLinkedList<Obstaculo>();
+		o=new ListaDoblementeEnlazada<Obstaculo>();
 		
 		
 			try{BufferedReader file=new BufferedReader(f);
