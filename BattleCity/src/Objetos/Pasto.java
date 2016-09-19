@@ -6,9 +6,10 @@ import javax.swing.ImageIcon;
 
 public class Pasto extends Obstaculo {
 
-	public Pasto(Point m,ImageIcon[] i){
+	public Pasto(Point m,ImageIcon i){
+		imagen=new ImageIcon[4];
 		posicion=m;
-		imagen=i;
+		imagen[0]=i;
 	}
 	
 	
