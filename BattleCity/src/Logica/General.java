@@ -45,8 +45,9 @@ public class General {
 		mapa=new Mapa(f,container);
 	}
 
-	public ImageIcon moverTanque(int valor) {
+	public ImageIcon moverJugador(int valor) {
 		int index=0;
+		
 		switch (valor){
 			case KeyEvent.VK_UP:
 				p.mover(0);

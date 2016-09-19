@@ -7,9 +7,15 @@ import javax.swing.ImageIcon;
 public class Jugador extends Tanque {
 
 	
+	private Disparo[] disparos;
+	private int cantDestruidos,score,disparossimultaneos,nivel,daire;
+	
 	public Jugador(){
 		imagen=new ImageIcon[4];
 		
+		disparos=new Disparo[4];
+		cantDestruidos=score=daire=0;
+		disparossimultaneos=nivel=1;
 		
 		posicion=new Point(0,0);
 		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/up.png"));
@@ -21,8 +27,8 @@ public class Jugador extends Tanque {
 	@Override
 	
 	public Disparo disparar() {
-		// TODO Auto-generated method stub
-		return null;
+		disparos[daire]=new Disparo();
+		return disparos[daire];
 	}
 
 	@Override

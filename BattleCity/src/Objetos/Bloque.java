@@ -7,9 +7,10 @@ import javax.swing.ImageIcon;
 public class Bloque extends Obstaculo {
 
 	
-	public Bloque(Point m,ImageIcon[] i){
+	public Bloque(Point m,ImageIcon i){
+		imagen=new ImageIcon[4];
 		posicion=m;
-		imagen=i;
+		imagen[0]=i;
 	}
 	@Override
 	public void colisionar() {

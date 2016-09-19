@@ -7,10 +7,10 @@ import javax.swing.ImageIcon;
 public class Ladrillo extends Obstaculo {
 
 	
-	public Ladrillo(Point m,ImageIcon[] i){
+	public Ladrillo(Point m,ImageIcon i){
+		imagen=new ImageIcon[4];
 		posicion=m;
-		imagen=i;
-		
+		imagen[0]=i;
 	}
 	
 	public void colisionar() {

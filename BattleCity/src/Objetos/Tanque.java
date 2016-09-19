@@ -14,16 +14,20 @@ public abstract class Tanque extends GameObject{
 	public void mover(int x){
 		switch (x) {
 		case 0:
-			posicion.setLocation(posicion.getX(),posicion.getY()-64);
+			if(posicion.getY()-8>=0)
+				posicion.setLocation(posicion.getX(),posicion.getY()-8);
 			break;
 		case 1:
-			posicion.setLocation(posicion.getX(),posicion.getY()+64);
+			if(posicion.getY()+8<=832)
+				posicion.setLocation(posicion.getX(),posicion.getY()+8);
 			break;
 		case 2:
-			posicion.setLocation(posicion.getX()-64,posicion.getY());
+			if(posicion.getX()-8>=0)
+				posicion.setLocation(posicion.getX()-8,posicion.getY());
 			break;
 		case 3:
-			posicion.setLocation(posicion.getX()+64,posicion.getY());
+			if(posicion.getX()+8<=832)
+				posicion.setLocation(posicion.getX()+8,posicion.getY());
 
 		default:
 			break;

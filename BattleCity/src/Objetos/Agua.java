@@ -6,9 +6,10 @@ import javax.swing.ImageIcon;
 
 public class Agua extends Obstaculo {
 
-	public Agua(Point m,ImageIcon[] i){
+	public Agua(Point m,ImageIcon i){
+		imagen=new ImageIcon[4];
 		posicion=m;
-		imagen=i;
+		imagen[0]=i;
 	}
 	
 	@Override
