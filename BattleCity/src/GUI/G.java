@@ -6,14 +6,10 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.*;
 
 import Logica.General;
 
-import javax.swing.JLabel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -63,6 +59,15 @@ public class G extends JFrame {
 		j.setLocation(0,0);
 		this.getContentPane().add(j);
 		this.getContentPane().setComponentZOrder(j,0);	
+		
+		JButton agregarEnemigo=new JButton("Agregar enemigo");
+		JButton eliminoEnemigo=new JButton("Elimino enemigo");
+		JButton eliminarObstaculo=new JButton("Eliminar obstaculo");
+		
+		agregarEnemigo.setSize(100,40);
+		agregarEnemigo.setLocation(1000, 400);
+		this.getContentPane().add(agregarEnemigo);
+		
 	}
 	
 	/**

@@ -35,14 +35,14 @@ public class General {
 		return malos[x].getImagen();
 	}
 	
-	public void crearMapa(G container){
+	public void crearMapa(G g){
 		FileReader f=null;
 		try {
 			f = new FileReader("mapa.txt");
 		} catch (FileNotFoundException e) {
-			container.add(new JLabel("Archivo no encontrado"));
+			g.add(new JLabel("Archivo no encontrado"));
 		}
-		mapa=new Mapa(f,container);
+		mapa=new Mapa(f,g);
 	}
 
 	public ImageIcon moverJugador(int valor) {

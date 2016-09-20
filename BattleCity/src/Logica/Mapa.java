@@ -19,7 +19,7 @@ public class Mapa {
 	private PowerUp[] pu;
 	private PositionList<GameObject> o;
 	
-	public Mapa(FileReader f, G container){
+	public Mapa(FileReader f, G g6){
 		m=new GameObject[50][50];
 		pu=new PowerUp[4];
 		o=new DoubleLinkedList<GameObject>();
@@ -40,7 +40,7 @@ public class Mapa {
 								GameObject g=new Vacio(p,img);
 								m[i][j]=g;
 								JLabel obs=new JLabel(img);
-								container.add(obs);
+								g6.add(obs);
 								obs.setLocation(p);
 								obs.setSize(64,64);
 								o.addLast(g);
@@ -52,7 +52,7 @@ public class Mapa {
 								GameObject g2=new Ladrillo(p2,img2);
 								m[i][j]=g2;
 								JLabel obs2=new JLabel(img2);
-								container.add(obs2);
+								g6.add(obs2);
 								obs2.setLocation(p2);
 								obs2.setSize(64,64);
 								o.addLast(g2);
@@ -64,7 +64,7 @@ public class Mapa {
 								GameObject g3=new Pasto(p3,img3);
 								m[i][j]=g3;
 								JLabel obs3=new JLabel(img3);
-								container.add(obs3);
+								g6.add(obs3);
 								obs3.setLocation(p3);
 								obs3.setSize(64,64);
 								o.addLast(g3);
@@ -76,7 +76,7 @@ public class Mapa {
 								GameObject g4=new Bloque(p4,img4);
 								m[i][j]=g4;
 								JLabel obs4=new JLabel(img4);
-								container.add(obs4);
+								g6.add(obs4);
 								obs4.setLocation(p4);
 								obs4.setSize(64,64);
 								o.addLast(g4);
@@ -88,7 +88,7 @@ public class Mapa {
 								GameObject g5=new Agua(p5,img5);
 								m[i][j]=g5;
 								JLabel obs5=new JLabel(img5);
-								container.add(obs5);
+								g6.add(obs5);
 								obs5.setLocation(p5);
 								obs5.setSize(64,64);
 								o.addLast(g5);
