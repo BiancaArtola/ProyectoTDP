@@ -69,6 +69,7 @@ public class G extends JFrame {
 		this.getContentPane().add(agregarEnemigo);
 		
 		eliminoEnemigo.setSize(100,40);
+		eliminoEnemigo.setLocation(1000, 500);
 		
 	}
 	
