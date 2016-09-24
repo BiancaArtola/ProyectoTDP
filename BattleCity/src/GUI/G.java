@@ -10,6 +10,8 @@ import javax.swing.*;
 
 import Logica.General;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -40,7 +42,7 @@ public class G extends JFrame {
 	 */
 	public G() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 930, 975);
+		setBounds(100, 100, 1500,1500);
 		juego=new General();
 		getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
@@ -64,12 +66,28 @@ public class G extends JFrame {
 		JButton eliminoEnemigo=new JButton("Elimino enemigo");
 		JButton eliminarObstaculo=new JButton("Eliminar obstaculo");
 		
-		agregarEnemigo.setSize(100,40);
+		agregarEnemigo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				agregarEnemigo();
+			}
+		});
+		
+		eliminoEnemigo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				eliminarEnemigo();
+			}
+			
+		});
+		
+		agregarEnemigo.setSize(150,40);
 		agregarEnemigo.setLocation(1000, 400);
 		this.getContentPane().add(agregarEnemigo);
 		
-		eliminoEnemigo.setSize(100,40);
+		eliminoEnemigo.setSize(150,40);
 		eliminoEnemigo.setLocation(1000, 500);
+		this.getContentPane().add(eliminoEnemigo);
+		
+		
 		
 	}
 	
@@ -83,5 +101,13 @@ public class G extends JFrame {
 		this.repaint();
 		return i;
 		
+	}
+	
+	public void agregarEnemigo(){
+		juego.agregarEnemigo(this);
+	}
+	
+	public void eliminarEnemigo(){
+		juego.eliminarEnemigo(0);
 	}
 }

@@ -1,6 +1,7 @@
 package Logica;
 
 import java.awt.Point;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,16 +16,15 @@ public class General {
 
 	private Jugador p;
 	private Enemigo[] malos;
+	private int size;
 	private Mapa mapa;
 	
 	
 	public General(){
 		p=new Jugador();
 		malos=new Enemigo[4];
-		for (int i=0;i<4;i++){
-			malos[i]=new TanqueBasico();
-		}
 		mapa=null;
+		size=0;
 	}
 	
 	public ImageIcon[] getImagenJugador(){
@@ -70,5 +70,26 @@ public class General {
 	
 	public Point getPuntoJugador(){
 		return p.getPosicion();
+	}
+
+	public void agregarEnemigo(G g) {
+		/*JLabel p=new JLabel(new ImageIcon(this.getClass().getResource("/Images/Battle_City_Tank_Enemy1.png")));
+		p.setSize(64,64);
+		p.setLocation(450,450);
+		g.add(p);
+		g.setComponentZOrder(p,0);*/
+		
+		Enemigo j=new TanqueBasico();
+		malos[size++]=j;
+		JLabel p=new JLabel(j.getImagen()[0]);
+		g.add(p);
+		p.setSize(64,64);
+		p.setLocation(400,400);
+		g.setComponentZOrder(p,0);
+	}
+
+	public void eliminarEnemigo(int i) {
+		malos[i]=null;
+		
 	}
 }
