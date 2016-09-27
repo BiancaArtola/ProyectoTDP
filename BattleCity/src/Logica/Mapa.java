@@ -16,6 +16,7 @@ import TDALista.*;
 public class Mapa {
 
 	private GameObject[][] m;
+	private GameObject[][] tanques;
 	private PowerUp[] pu;
 	private PositionList<GameObject> o;
 	
@@ -106,6 +107,11 @@ public class Mapa {
 	
 	public GameObject getObjetoEn(int i,int j){
 		return m[i][j];
+	}
+
+
+	public void eliminar(Point posicion) {
+				
 	}
 	
 }

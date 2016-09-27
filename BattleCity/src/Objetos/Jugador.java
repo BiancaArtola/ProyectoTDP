@@ -36,6 +36,10 @@ public class Jugador extends Tanque {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void aumentarPuntos(int puntaje) {
+		score+=puntaje;
+	}
 	
 
 }

@@ -79,17 +79,20 @@ public class General {
 		g.add(p);
 		g.setComponentZOrder(p,0);*/
 		
-		Enemigo j=new TanqueBasico();
+		Enemigo j=new TanqueBasico(400,400);
 		malos[size++]=j;
 		JLabel p=new JLabel(j.getImagen()[0]);
 		g.add(p);
 		p.setSize(64,64);
-		p.setLocation(400,400);
+		p.setLocation(j.getPosicion());
 		g.setComponentZOrder(p,0);
 	}
 
 	public void eliminarEnemigo(int i) {
-		malos[i]=null;
-		
+		if (malos[i]!=null){
+			mapa.eliminar(malos[i].getPosicion());
+			p.aumentarPuntos(malos[i].getPuntaje());
+			malos[i]=null;
+		}
 	}
 }

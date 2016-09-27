@@ -47,20 +47,6 @@ public class G extends JFrame {
 		getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
 		juego.crearMapa(this);
-		JLabel j=new JLabel(juego.getImagenJugador()[1]);
-		this.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyPressed(KeyEvent k) {
-				int valor=k.getKeyCode();
-				ImageIcon i=cambiarLabel(valor);
-				j.setIcon(i);
-				j.setLocation(juego.getPuntoJugador());
-			}
-		});
-		j.setSize(64,64);
-		j.setLocation(0,0);
-		this.getContentPane().add(j);
-		this.getContentPane().setComponentZOrder(j,0);	
 		
 		JButton agregarEnemigo=new JButton("Agregar enemigo");
 		JButton eliminoEnemigo=new JButton("Elimino enemigo");
@@ -79,6 +65,12 @@ public class G extends JFrame {
 			
 		});
 		
+		eliminarObstaculo.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				destruirObstaculo();
+			}
+		});
+		
 		agregarEnemigo.setSize(150,40);
 		agregarEnemigo.setLocation(1000, 400);
 		this.getContentPane().add(agregarEnemigo);
@@ -86,6 +78,28 @@ public class G extends JFrame {
 		eliminoEnemigo.setSize(150,40);
 		eliminoEnemigo.setLocation(1000, 500);
 		this.getContentPane().add(eliminoEnemigo);
+		
+		eliminarObstaculo.setSize(150,40);
+		eliminarObstaculo.setLocation(1000,600);
+		this.getContentPane().add(eliminarObstaculo);
+		
+		
+		JLabel j=new JLabel(juego.getImagenJugador()[0]);
+		
+		this.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent k) {
+				int valor=k.getKeyCode();
+				ImageIcon i=cambiarLabel(valor);
+				j.setIcon(i);
+				j.setLocation(juego.getPuntoJugador());
+			}
+		});
+		
+		j.setSize(64,64);
+		j.setLocation(0,0);
+		this.getContentPane().add(j);
+		this.getContentPane().setComponentZOrder(j,0);	
 		
 		
 		
@@ -109,5 +123,9 @@ public class G extends JFrame {
 	
 	public void eliminarEnemigo(){
 		juego.eliminarEnemigo(0);
+		
+	}
+	
+	public void destruirObstaculo(){
 	}
 }
