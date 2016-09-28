@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 public class G extends JFrame {
 
@@ -48,9 +49,18 @@ public class G extends JFrame {
 		getContentPane().setLayout(null);
 		juego.crearMapa(this);
 		
+		JLabel puntaje=new JLabel("Puntaje");
+		puntaje.setLocation(1000,700);
+		puntaje.setSize(100,100);
+		this.add(puntaje);
+		
 		JButton agregarEnemigo=new JButton("Agregar enemigo");
 		JButton eliminoEnemigo=new JButton("Elimino enemigo");
 		JButton eliminarObstaculo=new JButton("Eliminar obstaculo");
+		
+		agregarEnemigo.setFocusable(false);
+		eliminoEnemigo.setFocusable(false);
+		eliminarObstaculo.setFocusable(false);
 		
 		agregarEnemigo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -61,6 +71,7 @@ public class G extends JFrame {
 		eliminoEnemigo.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				eliminarEnemigo();
+				puntaje.setText("Puntaje: "+juego.getScore());
 			}
 			
 		});
@@ -122,10 +133,13 @@ public class G extends JFrame {
 	}
 	
 	public void eliminarEnemigo(){
-		juego.eliminarEnemigo(0);
+		juego.eliminarEnemigo(this);
+		this.repaint();
 		
 	}
 	
 	public void destruirObstaculo(){
+		Random r=new Random();
+		juego.destruirObstaculo(r.nextInt(14),r.nextInt(14));
 	}
 }

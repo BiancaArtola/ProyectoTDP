@@ -9,6 +9,7 @@ public class Jugador extends Tanque {
 	
 	private Disparo[] disparos;
 	private int cantDestruidos,score,disparossimultaneos,nivel,daire;
+	private Nivel lvl;
 	
 	public Jugador(){
 		imagen=new ImageIcon[4];
@@ -39,6 +40,11 @@ public class Jugador extends Tanque {
 
 	public void aumentarPuntos(int puntaje) {
 		score+=puntaje;
+	}
+
+	public int getScore() {
+		// TODO Auto-generated method stub
+		return score;
 	}
 	
 

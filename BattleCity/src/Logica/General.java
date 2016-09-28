@@ -81,18 +81,29 @@ public class General {
 		
 		Enemigo j=new TanqueBasico(400,400);
 		malos[size++]=j;
-		JLabel p=new JLabel(j.getImagen()[0]);
-		g.add(p);
-		p.setSize(64,64);
-		p.setLocation(j.getPosicion());
-		g.setComponentZOrder(p,0);
+		g.add(j.getGrafico());
+		j.getGrafico().setLocation(400,400);
+		j.getGrafico().setSize(64,64);
+		g.setComponentZOrder(j.getGrafico(),0);
 	}
 
-	public void eliminarEnemigo(int i) {
-		if (malos[i]!=null){
-			mapa.eliminar(malos[i].getPosicion());
-			p.aumentarPuntos(malos[i].getPuntaje());
-			malos[i]=null;
+	public void eliminarEnemigo(G g) {
+		if (malos[size-1]!=null){
+			mapa.eliminar(malos[size-1].getPosicion());
+			p.aumentarPuntos(malos[size-1].getPuntaje());
+			malos[size-1].getGrafico().setIcon(null);
+			g.remove(malos[size-1].getGrafico());
+			malos[size-1]=null;
+			size--;
 		}
+	}
+
+	public String getScore() {
+		return String.valueOf(p.getScore());
+	}
+
+	public void destruirObstaculo(int x,int y) {
+		Obstaculo g=(Obstaculo)mapa.getObjetoEn(x,y);
+		g.destruir();
 	}
 }

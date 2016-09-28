@@ -3,12 +3,14 @@ package Objetos;
 import java.awt.Point;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public abstract class GameObject {
 
 	
 	protected Point posicion;
 	protected ImageIcon[] imagen;
+	protected JLabel grafico;
 	
 	
 	public Point getPosicion(){
@@ -21,5 +23,8 @@ public abstract class GameObject {
 	
 	public abstract void colisionar();
 	
-	
+	public JLabel getGrafico()
+	{
+		return grafico;
+	}
 }
