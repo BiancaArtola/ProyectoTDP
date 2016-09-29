@@ -112,6 +112,25 @@ public class G extends JFrame {
 		this.getContentPane().add(j);
 		this.getContentPane().setComponentZOrder(j,0);	
 		
+		JButton nivel=new JButton("Subir de nivel");
+		nivel.setLocation(1000,800);
+		nivel.setSize(150,40);
+		nivel.setFocusable(false);
+		this.getContentPane().add(nivel);
+		
+
+		JLabel lvl=new JLabel("Nivel:");
+		lvl.setSize(150,40);
+		lvl.setLocation(1000,900);
+		this.getContentPane().add(lvl);
+		
+		
+		nivel.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				int l=juego.subirNivel();
+				lvl.setText("Nivel: "+l);
+			}
+		});
 		
 		
 	}

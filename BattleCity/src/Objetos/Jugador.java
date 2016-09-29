@@ -18,11 +18,18 @@ public class Jugador extends Tanque {
 		cantDestruidos=score=daire=0;
 		disparossimultaneos=nivel=1;
 		
+		lvl=new Uno(this);
+		
 		posicion=new Point(0,0);
 		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/up.png"));
 		this.imagen[1] = new ImageIcon(this.getClass().getResource("/Images/down.png"));
 		this.imagen[2] = new ImageIcon(this.getClass().getResource("/Images/left.png"));
 		this.imagen[3] = new ImageIcon(this.getClass().getResource("/Images/right.png"));
+	}
+	
+	
+	public void mover(int x){
+		lvl.mover(x);
 	}
 	
 	@Override
@@ -47,5 +54,22 @@ public class Jugador extends Tanque {
 		return score;
 	}
 	
+	public int subirNiverl(){
+		nivel++;
+		switch (nivel-1){
+			case 1:
+				lvl=new Dos(this);
+				break;
+			case 2:
+				lvl=new Tres(this);
+				break;
+			case 3:
+				lvl=new Cuatro(this);
+				break;
+			default:
+				nivel--;
+		}
+		return nivel;
+	}
 
 }

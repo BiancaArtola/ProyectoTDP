@@ -2,10 +2,10 @@ package Objetos;
 
 public abstract class Nivel {
 
-	protected int resistencia;
+	protected Jugador p;
 	
 	public abstract Disparo disparar();
 	
-	public abstract void mover();
+	public abstract void mover(int x);
 	
 }

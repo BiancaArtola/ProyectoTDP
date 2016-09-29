@@ -104,6 +104,10 @@ public class General {
 
 	public void destruirObstaculo(int x,int y) {
 		Obstaculo g=(Obstaculo)mapa.getObjetoEn(x,y);
-		g.destruir();
+		g.destruir();  
+	}
+
+	public int subirNivel() {
+		return p.subirNiverl();
 	}
 }
