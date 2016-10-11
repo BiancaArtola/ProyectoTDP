@@ -1,11 +1,19 @@
 package Objetos;
 
-public class Disparo extends GameObject {
+import Visitores.*;
+
+public abstract class Disparo extends GameObject {
+
+	protected VisitorDisparo miVisitor;
+
 
 	@Override
 	public void colisionar() {
-		// TODO Auto-generated method stub
 		
+	}
+
+	public Visitor getVisitor(){
+		return miVisitor;
 	}
 
 }

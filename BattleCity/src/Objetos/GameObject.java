@@ -12,7 +12,6 @@ public abstract class GameObject {
 	protected ImageIcon[] imagen;
 	protected JLabel grafico;
 	
-	
 	public Point getPosicion(){
 		return posicion;
 	}

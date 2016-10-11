@@ -15,6 +15,9 @@
 <fullyQualifiedTypeName name="java.awt.Container"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
+<fullyQualifiedTypeName name="Visitores.Visitor"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="Objetos.GameObject"/>
+<fullyQualifiedTypeName name="Objetos.Obstaculo"/>
 </qualifiedTypeNameHistroy>

@@ -35,7 +35,7 @@ public class Jugador extends Tanque {
 	@Override
 	
 	public Disparo disparar() {
-		disparos[daire]=new Disparo();
+		disparos[daire]=new DisparoJugador();
 		return disparos[daire];
 	}
 
@@ -54,7 +54,7 @@ public class Jugador extends Tanque {
 		return score;
 	}
 	
-	public int subirNiverl(){
+	public int subirNivel(){
 		nivel++;
 		switch (nivel-1){
 			case 1:

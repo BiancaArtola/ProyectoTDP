@@ -15,15 +15,15 @@ import TDALista.*;
 
 public class Mapa {
 
-	private GameObject[][] m;
-	private GameObject[][] tanques;
+	private Obstaculo[][] m;
+	private [][] tanques;
 	private PowerUp[] pu;
-	private PositionList<GameObject> o;
+	private PositionList<Obstaculo> o;
 	
 	public Mapa(FileReader f, G g6){
-		m=new GameObject[50][50];
+		m=new Obstaculo[50][50];
 		pu=new PowerUp[4];
-		o=new DoubleLinkedList<GameObject>();
+		o=new DoubleLinkedList<Obstaculo>();
 		
 		
 			try{BufferedReader file=new BufferedReader(f);
@@ -37,7 +37,7 @@ public class Mapa {
 						
 							case '0':
 								Point p=new Point(i*64,j*64);
-								GameObject g=new Vacio(p);
+								Obstaculo g=new Vacio(p);
 								m[i][j]=g;
 								g6.add(g.getGrafico());
 								o.addLast(g);
@@ -46,7 +46,7 @@ public class Mapa {
 							case 'l':
 								//ImageIcon img2=new ImageIcon(this.getClass().getResource("/Images/Battle_City_bricks.png"));
 								Point p2=new Point(i*64,j*64);
-								GameObject g2=new Ladrillo(p2);
+								Obstaculo g2=new Ladrillo(p2);
 								m[i][j]=g2;
 								//JLabel obs2=new JLabel(img2);
 								g6.add(g2.getGrafico());
@@ -55,7 +55,7 @@ public class Mapa {
 								
 							case 'p':
 								Point p3=new Point(i*64,j*64);
-								GameObject g3=new Pasto(p3);
+								Obstaculo g3=new Pasto(p3);
 								m[i][j]=g3;
 								g6.add(g3.getGrafico());
 								o.addLast(g3);
@@ -63,7 +63,7 @@ public class Mapa {
 								
 							case 'b':
 								Point p4=new Point(i*64,j*64);
-								GameObject g4=new Bloque(p4);
+								Obstaculo g4=new Bloque(p4);
 								m[i][j]=g4;
 								g6.add(g4.getGrafico());
 								o.addLast(g4);
@@ -71,7 +71,7 @@ public class Mapa {
 								
 							case 'a':
 								Point p5=new Point(i*64,j*64);
-								GameObject g5=new Agua(p5);
+								Obstaculo g5=new Agua(p5);
 								m[i][j]=g5;
 								g6.add(g5.getGrafico());
 								o.addLast(g5);
@@ -87,13 +87,22 @@ public class Mapa {
 	}
 	
 	
-	public GameObject getObjetoEn(int i,int j){
+	public Obstaculo getObjetoEn(int i,int j){
 		return m[i][j];
 	}
 
 
 	public void eliminar(Point posicion) {
 				
+	}
+
+
+	public void moverDePunto(Point posicion, int x, int y) {
+		
+		GameObject aux=tanques[(int)posicion.getX()%64][(int)posicion.getY()%64];
+		tanques[(int)posicion.getX()%64][(int)posicion.getY()%64]=tanques[x][y];
+		tanques[x][y]=aux;
+		
 	}
 	
 }

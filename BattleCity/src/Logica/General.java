@@ -18,7 +18,7 @@ public class General {
 	private Enemigo[] malos;
 	private int size;
 	private Mapa mapa;
-	
+	private InteligenciaEnemigos ia;	
 	
 	public General(){
 		p=new Jugador();
@@ -48,9 +48,19 @@ public class General {
 	public ImageIcon moverJugador(int valor) {
 		int index=0;
 		
+		GameObject o=null;
+		
 		switch (valor){
 			case KeyEvent.VK_UP:
-				p.mover(0);
+				o=mapa.getObjetoEn(((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
+				boolean puede=p.colisionar(o.getVisitor());
+				if (puede){
+					p.mover(0);
+					if (p.getPosicion().getY()%64==0) 
+						mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
+				}
+				
+				
 				break;
 			case KeyEvent.VK_DOWN:
 				p.mover(1);
@@ -108,6 +118,10 @@ public class General {
 	}
 
 	public int subirNivel() {
-		return p.subirNiverl();
+		return p.subirNivel();
+	}
+
+	public void creaEnemigos() {
+		ia=new InteligenciaEnemigos(malos);		
 	}
 }

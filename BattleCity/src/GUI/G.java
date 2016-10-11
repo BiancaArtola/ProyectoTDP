@@ -49,6 +49,8 @@ public class G extends JFrame {
 		getContentPane().setLayout(null);
 		juego.crearMapa(this);
 		
+		juego.creaEnemigos();
+		
 		JLabel puntaje=new JLabel("Puntaje");
 		puntaje.setLocation(1000,700);
 		puntaje.setSize(100,100);
