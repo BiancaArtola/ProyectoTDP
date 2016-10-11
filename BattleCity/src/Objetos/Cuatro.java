@@ -2,20 +2,31 @@ package Objetos;
 
 import java.awt.Point;
 
+/**
+ * Clase Cuatro, extiende la clase Nivel.
+ * @author Artola, Fiore, Jouglard.
+ *
+ */
 public class Cuatro extends Nivel {
 
+	/**
+	 * Constructor de la clase Cuatro.
+	 * @param j: de tipo Jugador.
+	 */
 	public Cuatro(Jugador j){
 		p=j;
 	}
 	
-	
-	@Override
+	/**
+	 * Metodo disparar
+	 */
 	public Disparo disparar() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	/**
+	 * 
+	 */
 	public void mover(int x) {
 		Point posicion=p.getPosicion();
 		switch (x) {

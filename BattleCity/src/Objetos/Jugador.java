@@ -39,9 +39,9 @@ public class Jugador extends Tanque {
 		return disparos[daire];
 	}
 
-	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
+
+	public boolean colisionar(GameObject o) {
+		return true;
 		
 	}
 

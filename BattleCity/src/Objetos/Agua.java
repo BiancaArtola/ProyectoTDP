@@ -4,9 +4,17 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
+/**
+ * Clase Agua, que extiende a la clase Obstaculo.
+ * @author Artola, Fiore, Jouglard.
+ *
+ */
 public class Agua extends Obstaculo {
 
+	/**
+	 * Constructor de la clase Agua
+	 * @param m: indica la posicion en la cual se encuentra el Agua en el mapa. Tipo: Point/
+	 */
 	public Agua(Point m){
 		imagen=new ImageIcon[4];
 		posicion=m;
@@ -16,7 +24,9 @@ public class Agua extends Obstaculo {
 		grafico.setSize(64,64);
 	}
 	
-	@Override
+	/**
+	 * Metodo colisionar.
+	 */
 	public void colisionar() {
 		// TODO Auto-generated method stub
 

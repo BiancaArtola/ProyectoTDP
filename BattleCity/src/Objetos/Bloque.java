@@ -5,9 +5,17 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+/**
+ * Clase Bloque, extiende de la clase Obstaculo.
+ * @author Artola, Fiore, Jouglard.
+ *
+ */
 public class Bloque extends Obstaculo {
 
-	
+	/**
+	 * Constructor de la clase Bloque.
+	 * @param m: posicion en la cual se encuentra un bloque en el mapa. Tipo: Point.
+	 */
 	public Bloque(Point m){
 		imagen=new ImageIcon[4];
 		posicion=m;
@@ -16,10 +24,11 @@ public class Bloque extends Obstaculo {
 		grafico.setLocation(m);
 		grafico.setSize(64,64);
 	}
-	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
 
+	/**
+	 * Metodo colisionar.
+	 */
+	public void colisionar() {
 	}
 
 }
