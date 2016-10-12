@@ -7,6 +7,8 @@ import Objetos.Tanque;
 
 public class VisitorObstaculoTransitable extends Visitor {
 
+
+
 	@Override
 	public boolean VisitarTanque(Tanque t) {
 		return true;

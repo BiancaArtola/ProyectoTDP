@@ -16,6 +16,7 @@ public abstract class GameObject {
 	protected Point posicion;
 	protected ImageIcon[] imagen;
 	protected JLabel grafico;
+	protected Visitor miVisitor;
 
 	/**
 	 * Retorna la posicion del objeto que realiza la llamada al metodo.
@@ -36,7 +37,7 @@ public abstract class GameObject {
 	/**
 	 * Metodo abstracto colisionar.
 	 */
-	public abstract void colisionar();
+	public abstract void colisionar(Visitor v);
 	
 	/**
 	 * Retorna el JLabel asociado al objeto que realiza la llamada al metodo.
@@ -46,8 +47,7 @@ public abstract class GameObject {
 		return grafico;
 	}
 
-	public Object getVisitor() {
-		// TODO Auto-generated method stub
-		return null;
+	public Visitor getVisitor() {
+		return miVisitor;
 	}
 }

@@ -22,12 +22,12 @@ public class Pasto extends Obstaculo {
 		grafico=new JLabel(imagen[0]);
 		grafico.setLocation(m);
 		grafico.setSize(64,64);
+		miVisitor=new VisitorObstaculoTransitable();
 	}
 	
 	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
-
+	public void colisionar(Visitor v) {
+		
 	}
 
 }

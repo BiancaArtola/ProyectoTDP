@@ -80,7 +80,7 @@ public class General {
 		case KeyEvent.VK_UP:
 			//Nose si es necesario modulo 50. Mapa.getObjetoEn() retorna un obstaculo 
 			o=mapa.getObjetoEn(((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			puede= p.colisionar(o);
+			puede= p.colisionar(o.getVisitor());
 			if (puede){
 				p.mover(0);
 				if (p.getPosicion().getY()%64==0) 
@@ -119,7 +119,7 @@ public class General {
 				p.mover(3);
 				if (p.getPosicion().getY()%64==0) 
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			//index=1;
+			//index=3;
 			 *  
 			 */
 			break;
@@ -197,7 +197,14 @@ public class General {
 	/**
 	 * Crea los enemigos del mapa.
 	 */
-	public void creaEnemigos() {
-		ia=new InteligenciaEnemigos(malos);		
+	public void creaEnemigos(G gui) {
+
+
+		for (int j=1;j<5;j++)
+			malos[j-1]=new TanqueBasico(j*200,i*200);
+
+		for (int i=0;i<malos.length;i++)
+			gui.add(malos[i].getGrafico());
+		ia=new InteligenciaEnemigos(malos,mapa);		
 	}
 }

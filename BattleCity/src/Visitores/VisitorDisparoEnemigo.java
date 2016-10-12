@@ -31,7 +31,6 @@ public class VisitorDisparoEnemigo extends VisitorDisparo {
 
 	@Override
 	public void visitarAguila() {
-		// TODO Auto-generated method stub
 
 	}
 
