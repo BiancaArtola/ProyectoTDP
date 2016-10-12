@@ -12,6 +12,7 @@ public abstract class Obstaculo extends GameObject {
 	/**
 	 * Atributos de la clase Obstaculo.
 	 */
+	protected Visitor miVisitor;
 	
 	/**
 	 * Metodo destruir: le asigna al obstaculo que recibe el mensaje la imagen de vacio.

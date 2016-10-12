@@ -26,7 +26,6 @@ public class InteligenciaEnemigos implements Runnable{
 	public InteligenciaEnemigos(Enemigo[] malos,Mapa m){
 		tanques=malos;
 		mapa=m;
-		this.run();
 	}
 
 	/**
@@ -34,41 +33,20 @@ public class InteligenciaEnemigos implements Runnable{
 	 */
 	public void run(){
 		Random r=new Random();
-		int x,y;
+
 		//Inicializar enemigo				
 		while(true){
 			for (int j=0;j<4;j++){
 				int mov=r.nextInt(4);
 
 				switch(mov){
-						case 0:
-							Obstaculo go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
-							boolean puede=tanques[j].colisionar(go.getVisitor());
-							if (puede){
-								tanques[j].mover(0);
-								mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
-							}
-						case 1:
-							Obstaculo go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
-							boolean puede=tanques[j].colisionar(go.getVisitor());
-							if (puede){
-								tanques[j].mover(1);
-								mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
-							}
-						case 2:
-							Obstaculo go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
-							boolean puede=tanques[j].colisionar(go.getVisitor());
-							if (puede){
-								tanques[j].mover(2);
-								mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
-							}
-						case 3:
-							Obstaculo go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
-							boolean puede=tanques[j].colisionar(go.getVisitor());
-							if (puede){
-								tanques[j].mover(3);
-								mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
-						}
+				case 0:
+					Obstaculo go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
+					boolean puede=tanques[j].colisionar(go.getVisitor());
+					if (puede){
+						tanques[j].mover(0);
+						mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
+					}
 
 
 				}

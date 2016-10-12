@@ -22,7 +22,7 @@ public class Mapa {
 	 * Atributos de la clase Mapa
 	 */
 	private Obstaculo[][] m;
-	private GameObject[][] tanques;
+	private ObjetosEnMapa[][] tanques;
 	private PowerUp[] pu;
 	private PositionList<Obstaculo> o;
 	
@@ -32,14 +32,15 @@ public class Mapa {
 	 * @param g6: la GUI es pasada como parametro
 	 */
 	public Mapa(FileReader f, G g6){
+		m=new Obstaculo[50][50];
 		pu=new PowerUp[4];
 		o=new DoubleLinkedList<Obstaculo>();
 
 		try{BufferedReader file=new BufferedReader(f);
 		String linea= file.readLine();
-		int i,j;
-		for(j=0;linea!=null; j++){
-			for(i=0; i<linea.length(); i++){
+
+		for(int j=0;linea!=null; j++){
+			for(int i=0; i<linea.length(); i++){
 				char crt= linea.charAt(i);
 				switch(crt){
 
@@ -88,11 +89,6 @@ public class Mapa {
 			}
 			linea=file.readLine();
 		}
-
-
-		m=new Obstaculo[i][j];
-		tanques=new GameObject[i][j];
-
 		file.close();
 		}
 		catch (IOException e){}
