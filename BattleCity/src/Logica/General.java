@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -25,6 +26,7 @@ public class General {
 	private int size;
 	private Mapa mapa;
 	private InteligenciaEnemigos ia;
+	private HiloDisparo hd;
 	
 	/**
 	 * Constructor de la clase General
@@ -74,54 +76,54 @@ public class General {
 	 */
 	public ImageIcon moverJugador(int valor) {
 		int index=0;
-		GameObject o=null;
+		Obstaculo o=null;
 		boolean puede = false;
 		switch (valor){
 		case KeyEvent.VK_UP:
-			//Nose si es necesario modulo 50. Mapa.getObjetoEn() retorna un obstaculo 
-			o=mapa.getObjetoEn(((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			puede= p.colisionar(o);
+				if(p.getPosicion().getY()/64>0){
+					o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)-1);
+					puede= p.colisionar(o.getVisitor());
+					if (puede)
+						mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)-1);
+		}
 			if (puede){
 				p.mover(0);
-				if (p.getPosicion().getY()%64==0) 
-					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
 			}
 			break;
 		case KeyEvent.VK_DOWN:
-			/*
-			o=mapa.getObjetoEn(((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			puede= p.colisionar(o);
+			if (p.getPosicion().getY()/64<13){
+				o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)+1);
+				puede= p.colisionar(o.getVisitor());	
+				if (puede)
+					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)+1);
+			}
 			if (puede){
-				p.mover(1);
-				if (p.getPosicion().getY()%64==0) 
-					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			index=1; 
-			 * 
-			 */
+				p.mover(1);}
+		    index=1; 
 			break;
 		case KeyEvent.VK_LEFT:
-			/*
-			o=mapa.getObjetoEn(((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			puede= p.colisionar(o);
+			if (p.getPosicion().getX()/64>0){
+				o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)-1,((int)p.getPosicion().getY()/64));
+				puede= p.colisionar(o.getVisitor());
+				if (puede)
+					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64)- 1,((int)p.getPosicion().getY()/64));
+			}
 			if (puede){
-				p.mover(2);
-				if (p.getPosicion().getY()%64==0) 
-					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			//index=2;
-			 *
-			 */
+				p.mover(2);					
+			}
+			index=2;
 			break;
 		case KeyEvent.VK_RIGHT:
-			/*
-			o=mapa.getObjetoEn(((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			puede= p.colisionar(o);
+			if (p.getPosicion().getX()/64<13){
+				o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64));
+				puede= p.colisionar(o.getVisitor());
+				if (puede)	
+					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64));
+			}
 			if (puede){
-				p.mover(3);
-				if (p.getPosicion().getY()%64==0) 
-					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()%50),((int)p.getPosicion().getY()%50)+1);
-			//index=1;
-			 *  
-			 */
+				p.mover(3);					
+			}
+			index=3;
 			break;
 		}
 		return p.actualizarImagen(index);
@@ -142,15 +144,13 @@ public class General {
 	public void agregarEnemigo(G g) {
 		/*JLabel p=new JLabel(new ImageIcon(this.getClass().getResource("/Images/Battle_City_Tank_Enemy1.png")));
 		p.setSize(64,64);
-		p.setLocation(450,450);
+		p.setLocation(414,414);
 		g.add(p);
 		g.setComponentZOrder(p,0);*/
 
 		Enemigo j=new TanqueBasico(400,400);
 		malos[size++]=j;
 		g.add(j.getGrafico());
-		j.getGrafico().setLocation(400,400);
-		j.getGrafico().setSize(64,64);
 		g.setComponentZOrder(j.getGrafico(),0);
 	}
 	/**
@@ -197,7 +197,50 @@ public class General {
 	/**
 	 * Crea los enemigos del mapa.
 	 */
-	public void creaEnemigos() {
-		ia=new InteligenciaEnemigos(malos);		
+	public void creaEnemigos(G gui) {
+		
+		/*abel prueba=new JLabel("Prueba");
+		prueba.setSize(64,64);
+		prueba.setLocation(1000,1000);
+		gui.add(prueba);*/
+
+		
+		//malos[0]=new TanqueBasico(400,400);
+		//gui.getContentPane().add(malos[0].getGrafico());
+		//gui.getContentPane().setComponentZOrder(malos[0].getGrafico(),0);
+		//gui.setComponentZOrder(malos[0].getGrafico(),0);
+		
+		Random r=new Random();
+		
+		/*for (int j=1;j<5;j++){
+			malos[j-1]=new TanqueBasico(r.nextInt(4)*128,r.nextInt(4)*128);
+			}
+
+		for (int i=0;i<malos.length;i++){
+			gui.getContentPane().add(malos[i].getGrafico());
+			gui.getContentPane().setComponentZOrder(malos[i].getGrafico(),0);
+		}*/
+		
+		malos[0]=new TanqueBasico(250,250);
+		gui.getContentPane().add(malos[0].getGrafico());
+		gui.getContentPane().setComponentZOrder(malos[0].getGrafico(),0);
+		ia=new InteligenciaEnemigos(malos,mapa,gui);
+		Thread t=new Thread(ia);
+		t.start();
+	}
+
+	public void disparaJugador(G g) {
+		DisparoJugador d=p.disparar();
+		g.getContentPane().add(d.getGrafico());
+		d.getGrafico().setLocation(d.getPosicion());
+		g.getContentPane().setComponentZOrder(d.getGrafico(),0);
+		hd=new HiloDisparo(d,3,mapa,g);
+		Thread t=new Thread(hd);
+		t.start();
+	}
+
+	public Jugador getJugador() {
+		// TODO Auto-generated method stub
+		return p;
 	}
 }

@@ -9,9 +9,9 @@ public class Uno extends Nivel {
 	}
 	
 	@Override
-	public Disparo disparar() {
-		// TODO Auto-generated method stub
-		return null;
+	public DisparoJugador disparar() {
+		DisparoJugador d=new DisparoJugador(64,(int)p.getPosicion().getX()+64,(int)p.getPosicion().getY());
+		return d;
 	}
 
 	@Override
@@ -19,20 +19,20 @@ public class Uno extends Nivel {
 		Point posicion=p.getPosicion();
 		switch (x) {
 		case 0:
-			if(posicion.getY()-8>=0)
-				posicion.setLocation(posicion.getX(),posicion.getY()-8);
+			if(posicion.getY()-64>=0)
+				posicion.setLocation(posicion.getX(),posicion.getY()-64);
 			break;
 		case 1:
-			if(posicion.getY()+8<=832)
-				posicion.setLocation(posicion.getX(),posicion.getY()+8);
+			if(posicion.getY()+64<=832)
+				posicion.setLocation(posicion.getX(),posicion.getY()+64);
 			break;
 		case 2:
-			if(posicion.getX()-8>=0)
-				posicion.setLocation(posicion.getX()-8,posicion.getY());
+			if(posicion.getX()-64>=0)
+				posicion.setLocation(posicion.getX()-64,posicion.getY());
 			break;
 		case 3:
-			if(posicion.getX()+8<=832)
-				posicion.setLocation(posicion.getX()+8,posicion.getY());
+			if(posicion.getX()+64<=832)
+				posicion.setLocation(posicion.getX()+64,posicion.getY());
 
 		default:
 			break;

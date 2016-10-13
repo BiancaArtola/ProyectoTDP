@@ -1,5 +1,6 @@
 package Objetos;
 
+import Visitores.Visitor;
 import Visitores.VisitorDisparoEnemigo;
 
 /**
@@ -15,5 +16,10 @@ public class DisparoEnemigo extends Disparo {
 	 */
 	public DisparoEnemigo(){
 		miVisitor=new VisitorDisparoEnemigo();
+	}
+
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		return false;
 	}
 }

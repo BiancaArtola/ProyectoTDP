@@ -5,6 +5,8 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Visitores.*;
+
 /**
  * Clase Bloque, extiende de la clase Obstaculo.
  * @author Artola, Fiore, Jouglard.
@@ -23,12 +25,21 @@ public class Bloque extends Obstaculo {
 		grafico=new JLabel(imagen[0]);
 		grafico.setLocation(m);
 		grafico.setSize(64,64);
+		miVisitor=new VisitorObstaculoNoTransitable();
 	}
 
 	/**
 	 * Metodo colisionar.
 	 */
-	public void colisionar() {
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		visitor.VisitarObstaculo(this);
+		return false;
+	}
+
+	@Override
+	public boolean recibirDisparo() {
+		return true;		
 	}
 
 }

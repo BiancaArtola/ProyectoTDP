@@ -50,7 +50,7 @@ public class G extends JFrame {
 		getContentPane().setLayout(null);
 		juego.crearMapa(this);
 
-		juego.creaEnemigos();
+		juego.creaEnemigos(this);
 
 		JLabel puntaje=new JLabel("Puntaje");
 		puntaje.setLocation(1000,700);
@@ -103,10 +103,16 @@ public class G extends JFrame {
 		this.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent k) {
+				if (k.getKeyCode()==KeyEvent.VK_F){
+					disparaJugador();
+				}
+				else{	
 				int valor=k.getKeyCode();
 				ImageIcon i=cambiarLabel(valor);
 				j.setIcon(i);
 				j.setLocation(juego.getPuntoJugador());
+				}
+				
 			}
 		});
 
@@ -135,7 +141,7 @@ public class G extends JFrame {
 			}
 		});
 
-
+		
 	}
 
 	/**
@@ -169,5 +175,10 @@ public class G extends JFrame {
 	public void destruirObstaculo(){
 		Random r=new Random();
 		juego.destruirObstaculo(r.nextInt(14),r.nextInt(14));
+	}
+	
+	public void disparaJugador(){
+		juego.disparaJugador(this);
+		this.repaint();
 	}
 }

@@ -8,26 +8,26 @@ import Objetos.Tanque;
 public class VisitorEstrella extends Visitor {
 
 	@Override
-	public void VistarTanque(Tanque t, int x) {
-		// TODO Auto-generated method stub
+	public boolean VisitarTanque(Tanque t) {
+		return false;
 
 	}
 
 	@Override
-	public void VisitarObstaculo(Obstaculo o) {
-		// TODO Auto-generated method stub
-
+	public boolean VisitarObstaculo(Obstaculo o) {
+		return false;
 	}
 
 	@Override
-	public void visitarJugador(Jugador j) {
+	public boolean visitarJugador(Jugador j) {
 		j.subirNivel();
+		return false;
 
 	}
 
 	@Override
-	public void visitarEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
+	public boolean visitarEnemigo(Enemigo e) {
+		return false;
 
 	}
 

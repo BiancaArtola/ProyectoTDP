@@ -22,7 +22,7 @@ public class Mapa {
 	 * Atributos de la clase Mapa
 	 */
 	private Obstaculo[][] m;
-	private ObjetosEnMapa[][] tanques;
+	private GameObject[][] tanques;
 	private PowerUp[] pu;
 	private PositionList<Obstaculo> o;
 	
@@ -32,15 +32,17 @@ public class Mapa {
 	 * @param g6: la GUI es pasada como parametro
 	 */
 	public Mapa(FileReader f, G g6){
-		m=new Obstaculo[50][50];
 		pu=new PowerUp[4];
 		o=new DoubleLinkedList<Obstaculo>();
+		
+		m=new Obstaculo[14][14];
+		tanques=new GameObject[14][14];
 
 		try{BufferedReader file=new BufferedReader(f);
 		String linea= file.readLine();
-
-		for(int j=0;linea!=null; j++){
-			for(int i=0; i<linea.length(); i++){
+		int i=0,j=0;
+		for(j=0;linea!=null; j++){
+			for(i=0; i<linea.length(); i++){
 				char crt= linea.charAt(i);
 				switch(crt){
 
@@ -89,6 +91,10 @@ public class Mapa {
 			}
 			linea=file.readLine();
 		}
+
+
+		
+
 		file.close();
 		}
 		catch (IOException e){}
@@ -102,7 +108,7 @@ public class Mapa {
 	 * @return objeto encontrado en la pos pasada como parametro.
 	 */
 	public Obstaculo getObjetoEn(int i,int j){
-		return m[i][j];
+			return m[i][j];
 	}
 
 	/**
@@ -120,10 +126,9 @@ public class Mapa {
 	 * @param y
 	 */
 	public void moverDePunto(Point posicion, int x, int y) {
-		GameObject aux= tanques[(int)posicion.getX()%64][(int)posicion.getY()%64];
-		tanques[(int)posicion.getX()%64][(int)posicion.getY()%64]=tanques[x][y];
+		GameObject aux= tanques[(int)posicion.getX()/64][(int)posicion.getY()/64];
+		tanques[(int)posicion.getX()/64][(int)posicion.getY()/64]=tanques[x][y];
 		tanques[x][y]=aux;
-
 	}
 
 }

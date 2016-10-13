@@ -12,17 +12,15 @@ public abstract class Obstaculo extends GameObject {
 	/**
 	 * Atributos de la clase Obstaculo.
 	 */
-	protected Visitor miVisitor;
 	
+	protected int vida;
 	/**
 	 * Metodo destruir: le asigna al obstaculo que recibe el mensaje la imagen de vacio.
 	 */
 	public void destruir(){
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/Images/vacio.png")));
+		miVisitor=new VisitorObstaculoTransitable();
 	}
-
-	public Visitor getVisitor() {
-		// TODO Auto-generated method stub
-		return miVisitor;
-	}
+	
+	public abstract boolean recibirDisparo();
 }

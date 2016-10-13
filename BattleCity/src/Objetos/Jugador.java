@@ -3,6 +3,9 @@ package Objetos;
 import java.awt.Point;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import Visitores.Visitor;
 
 public class Jugador extends Tanque {
 
@@ -20,11 +23,16 @@ public class Jugador extends Tanque {
 		
 		lvl=new Uno(this);
 		
+		
 		posicion=new Point(0,0);
 		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/up.png"));
 		this.imagen[1] = new ImageIcon(this.getClass().getResource("/Images/down.png"));
 		this.imagen[2] = new ImageIcon(this.getClass().getResource("/Images/left.png"));
 		this.imagen[3] = new ImageIcon(this.getClass().getResource("/Images/right.png"));
+		grafico=new JLabel();
+		grafico.setIcon(imagen[0]);
+		grafico.setLocation(posicion);
+		grafico.setSize(64,64);
 	}
 	
 	
@@ -34,15 +42,13 @@ public class Jugador extends Tanque {
 	
 	@Override
 	
-	public Disparo disparar() {
-		disparos[daire]=new DisparoJugador();
-		return disparos[daire];
+	public DisparoJugador disparar() {
+		return lvl.disparar();
 	}
 
 
-	public boolean colisionar(GameObject o) {
-		return true;
-		
+	public boolean colisionar(Visitor visitor) {
+		return visitor.visitarJugador(this);
 	}
 
 	public void aumentarPuntos(int puntaje) {

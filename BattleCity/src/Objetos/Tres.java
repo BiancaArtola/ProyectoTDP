@@ -11,7 +11,7 @@ public class Tres extends Nivel {
 	}
 	
 	@Override
-	public Disparo disparar() {
+	public DisparoJugador disparar() {
 		// TODO Auto-generated method stub
 		return null;
 	}

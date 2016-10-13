@@ -1,7 +1,13 @@
 package Objetos;
 
+import Visitores.*;
+
 public class TanqueRapido extends Enemigo {
 
+	public TanqueRapido(){
+		miVisitor=new VisitorObstaculoNoTransitable();
+	}
+	
 	@Override
 	public Disparo disparar() {
 		// TODO Auto-generated method stub
@@ -9,9 +15,16 @@ public class TanqueRapido extends Enemigo {
 	}
 
 	@Override
-	public void colisionar() {
+	public void mover(int x) {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public boolean colisionar(Visitor v) {
+		v.visitarEnemigo(this);
+		return false;
+		
 	}
 
 }

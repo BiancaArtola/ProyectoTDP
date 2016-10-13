@@ -1,5 +1,7 @@
 package Objetos;
 
+import Visitores.*;
+
 /**
  * Clase Estrella, extiende PowerUp.
  * Modela un tipo de PowerUp llamado Estrella.
@@ -8,10 +10,16 @@ package Objetos;
  */
 public class Estrella extends PowerUp {
 
-	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
-		
+	public Estrella(){
+		miVisitor=new VisitorEstrella();
 	}
+
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
 
 }

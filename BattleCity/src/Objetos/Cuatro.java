@@ -20,7 +20,7 @@ public class Cuatro extends Nivel {
 	/**
 	 * Metodo disparar
 	 */
-	public Disparo disparar() {
+	public DisparoJugador disparar() {
 		return null;
 	}
 

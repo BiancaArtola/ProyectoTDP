@@ -11,28 +11,29 @@ import Objetos.Tanque;
  */
 public class VisitorDisparoEnemigo extends VisitorDisparo {
 
+	
+
 	@Override
-	public void VistarTanque(Tanque t, int x) {
-		// TODO Auto-generated method stub
+	public boolean visitarJugador(Jugador j) {
+		j.destruir();
+		return false;
 
 	}
 
 	@Override
-	public void visitarJugador(Jugador j) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void visitarEnemigo(Enemigo e) {
-		// TODO Auto-generated method stub
+	public boolean visitarEnemigo(Enemigo e) {
+		return false;
 
 	}
 
 	@Override
 	public void visitarAguila() {
-		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean VisitarTanque(Tanque t) {
+		return false;
 	}
 
 }

@@ -15,7 +15,7 @@ public abstract class Nivel {
 	 * Metodo disparar: dependiendo del nivel, los disparos seran diferentes.
 	 * @return Disparo.
 	 */
-	public abstract Disparo disparar();
+	public abstract DisparoJugador disparar();
 	
 	/**
 	 * Metodo mover: dependiendo del nivel, la velocidad del moviemiento del jugador sera diferente.

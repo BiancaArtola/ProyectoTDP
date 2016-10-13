@@ -4,6 +4,8 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Visitores.*;
 /**
  * Clase abstracta GameObject.
  * @author Artola, Fiore, Jouglard.
@@ -16,6 +18,7 @@ public abstract class GameObject {
 	protected Point posicion;
 	protected ImageIcon[] imagen;
 	protected JLabel grafico;
+	protected Visitor miVisitor;
 
 	/**
 	 * Retorna la posicion del objeto que realiza la llamada al metodo.
@@ -36,7 +39,7 @@ public abstract class GameObject {
 	/**
 	 * Metodo abstracto colisionar.
 	 */
-	public abstract void colisionar();
+	public abstract boolean colisionar(Visitor visitor);
 	
 	/**
 	 * Retorna el JLabel asociado al objeto que realiza la llamada al metodo.
@@ -46,8 +49,7 @@ public abstract class GameObject {
 		return grafico;
 	}
 
-	public Object getVisitor() {
-		// TODO Auto-generated method stub
-		return null;
+	public Visitor getVisitor() {
+		return miVisitor;
 	}
 }

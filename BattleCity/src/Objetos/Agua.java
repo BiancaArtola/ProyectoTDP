@@ -4,6 +4,8 @@ import java.awt.Point;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import Visitores.*;
 /**
  * Clase Agua, que extiende a la clase Obstaculo.
  * @author Artola, Fiore, Jouglard.
@@ -22,14 +24,21 @@ public class Agua extends Obstaculo {
 		grafico=new JLabel(imagen[0]);
 		grafico.setLocation(m);
 		grafico.setSize(64,64);
+		miVisitor=new VisitorObstaculoNoTransitable();
 	}
 	
 	/**
 	 * Metodo colisionar.
 	 */
-	public void colisionar() {
-		// TODO Auto-generated method stub
+	public boolean colisionar(Visitor visitor) {
+		return false;
 
+	}
+
+	@Override
+	public boolean recibirDisparo() {
+		return false;
+		
 	}
 
 }

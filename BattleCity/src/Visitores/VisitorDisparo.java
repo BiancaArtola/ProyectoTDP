@@ -4,8 +4,8 @@ import Objetos.Obstaculo;
 
 public abstract class VisitorDisparo extends Visitor{
 
-	public void VisitarObstaculo(Obstaculo o){
-		o.destruir();
+	public boolean VisitarObstaculo(Obstaculo o){
+		return o.recibirDisparo();
 	}
 	
 }

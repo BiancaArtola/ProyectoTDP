@@ -4,6 +4,8 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Visitores.*;
+
 /**
  * Clase Pasto, extiende Obstaculo.
  * Modela un tipo de Obstaculo llamado Pasto.
@@ -22,12 +24,21 @@ public class Pasto extends Obstaculo {
 		grafico=new JLabel(imagen[0]);
 		grafico.setLocation(m);
 		grafico.setSize(64,64);
+		miVisitor=new VisitorObstaculoTransitable();
+	}
+
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		visitor.VisitarObstaculo(this);
+		return false;
+	}
+
+	@Override
+	public boolean recibirDisparo() {
+		return false;
+		
 	}
 	
-	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
