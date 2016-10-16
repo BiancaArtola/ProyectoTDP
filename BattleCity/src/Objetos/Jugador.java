@@ -25,10 +25,10 @@ public class Jugador extends Tanque {
 		
 		
 		posicion=new Point(0,0);
-		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/up.png"));
-		this.imagen[1] = new ImageIcon(this.getClass().getResource("/Images/down.png"));
-		this.imagen[2] = new ImageIcon(this.getClass().getResource("/Images/left.png"));
-		this.imagen[3] = new ImageIcon(this.getClass().getResource("/Images/right.png"));
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevo.png"));
+		this.imagen[1] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoAbajo.png"));
+		this.imagen[2] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoIzquierda.png"));
+		this.imagen[3] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoDerecha.png"));
 		grafico=new JLabel();
 		grafico.setIcon(imagen[0]);
 		grafico.setLocation(posicion);

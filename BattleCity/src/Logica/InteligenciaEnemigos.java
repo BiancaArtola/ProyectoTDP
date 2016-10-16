@@ -59,13 +59,14 @@ public class InteligenciaEnemigos implements Runnable{
 								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
 								i=tanques[j].actualizarImagen(0);
 								tanques[j].getGrafico().setIcon(i);
+								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							}
 						case 1:
 							//go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
 							//puede=tanques[j].colisionar(go.getVisitor());
 							if (puede){
-								tanques[j].mover(1);
+								tanques[j].mover(0);
 								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
 								i=tanques[j].actualizarImagen(1);
 								tanques[j].getGrafico().setIcon(i);
@@ -80,16 +81,19 @@ public class InteligenciaEnemigos implements Runnable{
 								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
 								i=tanques[j].actualizarImagen(2);
 								tanques[j].getGrafico().setIcon(i);
+								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							}
 						case 3:
 							//go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
 							//puede=tanques[j].colisionar(go.getVisitor());
 							if (puede){
-								tanques[j].mover(3);
+								tanques[j].mover(2);
+								//Mover codigo dentro de Tanque.mover 
 								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
 								i=tanques[j].actualizarImagen(3);
 								tanques[j].getGrafico().setIcon(i);
+								//
 								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							} 
@@ -102,7 +106,7 @@ public class InteligenciaEnemigos implements Runnable{
 			}
 
 			try {
-				Thread.sleep(200);
+				Thread.sleep(125);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

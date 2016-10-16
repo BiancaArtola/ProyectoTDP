@@ -16,6 +16,7 @@ public abstract class Disparo extends GameObject {
 	 */
 	protected VisitorDisparo miVisitor;
 	protected int velocidad;
+	protected int direccion;
 
 	/**
 	 * Metodo colisionar

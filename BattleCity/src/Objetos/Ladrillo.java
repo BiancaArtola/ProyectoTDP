@@ -22,7 +22,7 @@ public class Ladrillo extends Obstaculo {
 	public Ladrillo(Point m){
 		vida=1;
 		imagen=new ImageIcon[4];
-		imagen[0]=new ImageIcon(this.getClass().getResource("/Images/Battle_City_bricks.png"));
+		imagen[0]=new ImageIcon(this.getClass().getResource("/Images/ladrillo2.png"));
 		posicion=m;
 		grafico=new JLabel(imagen[0]);
 		grafico.setLocation(m);
