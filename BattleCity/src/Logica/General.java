@@ -159,7 +159,7 @@ public class General {
 	 */
 	public void eliminarEnemigo(G g) {
 		if (malos[size-1]!=null){
-			mapa.eliminar(malos[size-1].getPosicion());
+			mapa.eliminarObs(malos[size-1].getPosicion());
 			p.aumentarPuntos(malos[size-1].getPuntaje());
 			malos[size-1].getGrafico().setIcon(null);
 			g.remove(malos[size-1].getGrafico());
@@ -234,7 +234,7 @@ public class General {
 		g.getContentPane().add(d.getGrafico());
 		d.getGrafico().setLocation(d.getPosicion());
 		g.getContentPane().setComponentZOrder(d.getGrafico(),0);
-		hd=new HiloDisparo(d,3,mapa,g);
+		hd=new HiloDisparo(d,p.getDireccion(),mapa,g);
 		Thread t=new Thread(hd);
 		t.start();
 	}

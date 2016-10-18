@@ -22,7 +22,7 @@ public class Jugador extends Tanque {
 		disparossimultaneos=nivel=1;
 		
 		lvl=new Uno(this);
-		
+		direccion=0;
 		
 		posicion=new Point(0,0);
 		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevo.png"));

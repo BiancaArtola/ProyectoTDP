@@ -46,19 +46,16 @@ public class InteligenciaEnemigos implements Runnable{
 		
 		//Inicializar enemigo	
 		while(true){
-			for (int j=0;j<1;j++){
-				int mov=r.nextInt(4);
+			//for (int j=0;j<1;j++){
+				int mov=1;
 
-			for (int z=0;z<4;z++){
-				switch(mov){
+				for (int z=0;z<4;z++){
+					switch(mov){
 						case 0:
 							//go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
 							//puede=tanques[j].colisionar(go.getVisitor());
 							if (puede){
-								tanques[j].mover(0);
-								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
-								i=tanques[j].actualizarImagen(0);
-								tanques[j].getGrafico().setIcon(i);
+								tanques[0].mover(0);
 								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							}
@@ -66,10 +63,7 @@ public class InteligenciaEnemigos implements Runnable{
 							//go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
 							//puede=tanques[j].colisionar(go.getVisitor());
 							if (puede){
-								tanques[j].mover(0);
-								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
-								i=tanques[j].actualizarImagen(1);
-								tanques[j].getGrafico().setIcon(i);
+								tanques[0].mover(0);
 								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							}
@@ -77,10 +71,7 @@ public class InteligenciaEnemigos implements Runnable{
 							//go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
 							//puede=tanques[j].colisionar(go.getVisitor());
 							if (puede){
-								tanques[j].mover(2);
-								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
-								i=tanques[j].actualizarImagen(2);
-								tanques[j].getGrafico().setIcon(i);
+								tanques[0].mover(2);
 								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							}
@@ -88,25 +79,18 @@ public class InteligenciaEnemigos implements Runnable{
 							//go=mapa.getObjetoEn((int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY()-1);
 							//puede=tanques[j].colisionar(go.getVisitor());
 							if (puede){
-								tanques[j].mover(2);
-								//Mover codigo dentro de Tanque.mover 
-								tanques[j].getGrafico().setLocation(tanques[j].getPosicion());
-								i=tanques[j].actualizarImagen(3);
-								tanques[j].getGrafico().setIcon(i);
-								//
+								tanques[0].mover(2);
 								gui.repaint();
 								//mapa.moverDePunto(tanques[j].getPosicion(),(int)tanques[j].getPosicion().getX(),(int)tanques[j].getPosicion().getY());
 							} 
 
 
 				}
-				}
-			gui.validate();
-			gui.repaint();
+				
 			}
 
 			try {
-				Thread.sleep(125);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

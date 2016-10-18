@@ -20,7 +20,7 @@ public class Ladrillo extends Obstaculo {
 	 * @param m: indica la posicion en la cual se encuentra un determinado Ladrillo en el mapa.
 	 */
 	public Ladrillo(Point m){
-		vida=1;
+		vida=4;
 		imagen=new ImageIcon[4];
 		imagen[0]=new ImageIcon(this.getClass().getResource("/Images/ladrillo2.png"));
 		posicion=m;

@@ -115,8 +115,8 @@ public class Mapa {
 	 * Elimina el objeto encontrado en la posicion pasada como parametro.
 	 * @param posicion: posicion del objeto a eliminar
 	 */
-	public void eliminar(Point posicion) {
-
+	public void eliminarObs(Point posicion) {
+		m[(int)posicion.getX()/64][(int)posicion.getY()/64]=new Vacio(posicion);
 	}
 
 	/**

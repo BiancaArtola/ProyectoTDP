@@ -23,4 +23,9 @@ public abstract class Obstaculo extends GameObject {
 	}
 	
 	public abstract boolean recibirDisparo();
+
+	public int getVida() {
+		// TODO Auto-generated method stub
+		return vida;
+	}
 }

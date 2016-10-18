@@ -24,7 +24,7 @@ public class HiloDisparo implements Runnable {
 		while(!choco){
 				switch(direccion){
 						case 0:
-							if(d.getPosicion().getY()/64>0){
+							if((int)d.getPosicion().getY()/64>0){
 								o=m.getObjetoEn((int)(d.getPosicion().getX()/64),(int)(d.getPosicion().getY()/64)-1);
 								choco=o.colisionar(d.getVisitor());
 								if (!choco){
@@ -35,7 +35,7 @@ public class HiloDisparo implements Runnable {
 							else
 								choco=true;
 						case 1:
-							if(d.getPosicion().getY()/64<13){
+							if((int)d.getPosicion().getY()/64<13){
 							o=m.getObjetoEn((int)(d.getPosicion().getX()/64),(int)(d.getPosicion().getY()/64)+1);
 							choco=o.colisionar(d.getVisitor());
 							if (!choco){
@@ -46,9 +46,9 @@ public class HiloDisparo implements Runnable {
 								choco=true;
 							
 						case 2:
-							if(d.getPosicion().getX()/64>0){
-							o=m.getObjetoEn((int)(d.getPosicion().getX()/64)-1,(int)(d.getPosicion().getY()/64));
-							choco=o.colisionar(d.getVisitor());
+							if((int)d.getPosicion().getX()/64>0){
+								o=m.getObjetoEn((int)(d.getPosicion().getX()/64)-1,(int)(d.getPosicion().getY()/64));
+								choco=o.colisionar(d.getVisitor());
 							if (!choco){
 								d.mover(2);
 								d.getGrafico().setLocation(d.getPosicion());
@@ -57,22 +57,23 @@ public class HiloDisparo implements Runnable {
 							else
 								choco=true;
 						case 3:
-							if(d.getPosicion().getX()/64<13){
+							if((int)d.getPosicion().getX()/64<13){
 							o=m.getObjetoEn((int)(d.getPosicion().getX()/64)+1,(int)(d.getPosicion().getY()/64));
 							choco=o.colisionar(d.getVisitor());
 							if (!choco){
 								d.mover(3);
-								d.getGrafico().setLocation(d.getPosicion());}
+								d.getGrafico().setLocation(d.getPosicion());
+								}
 							}
 							else
 								choco=true;
 					
-					//d.mover(2);
-					//d.getGrafico().setLocation(d.getPosicion());
 				}
 				if (choco){
 					gui.remove(d.getGrafico());
 					d.destruir();
+					if (o.getVida()==0)
+						m.eliminarObs(o.getPosicion());
 					}
 
 			try {

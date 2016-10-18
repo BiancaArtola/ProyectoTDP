@@ -13,7 +13,7 @@ public abstract class Tanque extends GameObject{
 	/**
 	 * Atributos de la clase Tanque.
 	 */
-	protected int resistencia;
+	protected int resistencia,direccion;
 	protected int golpesrecibidos;
 	protected int velocidadmovimiento, velocidaddisparo;
 	
@@ -40,5 +40,12 @@ public abstract class Tanque extends GameObject{
 	
 	public boolean colisionar(Visitor visitor){
 		return visitor.VisitarTanque(this);
+	}
+	
+	public int getDireccion(){
+		return direccion;
+	}
+	public void setDireccion(int x){
+		direccion=x;
 	}
 }

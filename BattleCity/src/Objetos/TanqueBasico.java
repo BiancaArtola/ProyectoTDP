@@ -41,22 +41,26 @@ public class TanqueBasico extends Enemigo {
 		case 0:
 			if(posicion.getY()-5>=0){
 				posicion.setLocation(posicion.getX(),posicion.getY()-5);
+				grafico.setLocation(posicion);
 				grafico.setIcon(imagen[0]);
 			}
 			break;
 		case 1:
 			if(posicion.getY()+5<=832){
 				posicion.setLocation(posicion.getX(),posicion.getY()+5);
+				grafico.setLocation(posicion);
 				grafico.setIcon(imagen[1]);}
 			break;
 		case 2:
 			if(posicion.getX()-5>=0){
 				posicion.setLocation(posicion.getX()-5,posicion.getY());
+				grafico.setLocation(posicion);
 				grafico.setIcon(imagen[2]);}
 			break;
 		case 3:
 			if(posicion.getX()+5<=832){
 				posicion.setLocation(posicion.getX()+5,posicion.getY());
+				grafico.setLocation(posicion);
 				grafico.setIcon(imagen[3]);
 				}
 		default:

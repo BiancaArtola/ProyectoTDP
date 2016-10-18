@@ -45,6 +45,7 @@ public class G extends JFrame {
 	public G() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1500,1500);
+		this.setExtendedState(this.MAXIMIZED_BOTH);
 		juego=new General();
 		getContentPane().setLayout(null);
 		getContentPane().setLayout(null);
@@ -97,6 +98,11 @@ public class G extends JFrame {
 		eliminarObstaculo.setLocation(1000,600);
 		this.getContentPane().add(eliminarObstaculo);
 
+		
+		JLabel dri=new JLabel("Direccion");
+		dri.setLocation(1000,100);
+		dri.setSize(300,300);
+		this.getContentPane().add(dri);
 
 		JLabel j=new JLabel(juego.getImagenJugador()[0]);
 
@@ -112,7 +118,7 @@ public class G extends JFrame {
 				j.setIcon(i);
 				j.setLocation(juego.getPuntoJugador());
 				}
-				
+				dri.setText(String.valueOf(juego.getJugador().getDireccion()));
 			}
 		});
 
