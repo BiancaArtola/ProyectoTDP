@@ -34,6 +34,7 @@ public class HiloDisparo implements Runnable {
 							}
 							else
 								choco=true;
+							break;
 						case 1:
 							if((int)d.getPosicion().getY()/64<13){
 							o=m.getObjetoEn((int)(d.getPosicion().getX()/64),(int)(d.getPosicion().getY()/64)+1);
@@ -44,7 +45,7 @@ public class HiloDisparo implements Runnable {
 							}
 							else
 								choco=true;
-							
+							break;
 						case 2:
 							if((int)d.getPosicion().getX()/64>0){
 								o=m.getObjetoEn((int)(d.getPosicion().getX()/64)-1,(int)(d.getPosicion().getY()/64));
@@ -56,6 +57,8 @@ public class HiloDisparo implements Runnable {
 							}
 							else
 								choco=true;
+							
+							break;
 						case 3:
 							if((int)d.getPosicion().getX()/64<13){
 							o=m.getObjetoEn((int)(d.getPosicion().getX()/64)+1,(int)(d.getPosicion().getY()/64));
@@ -67,11 +70,11 @@ public class HiloDisparo implements Runnable {
 							}
 							else
 								choco=true;
-					
+							break;
 				}
 				if (choco){
 					gui.remove(d.getGrafico());
-					d.destruir();
+					
 					if (o.getVida()==0)
 						m.eliminarObs(o.getPosicion());
 					}

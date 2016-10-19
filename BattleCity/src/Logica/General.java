@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 
 import GUI.G;
 import Objetos.*;
+import Visitores.*;
 /**
  * Clase general del juego
  * @author Artola, Fiore, Jouglard
@@ -221,7 +222,7 @@ public class General {
 			gui.getContentPane().setComponentZOrder(malos[i].getGrafico(),0);
 		}*/
 		
-		malos[0]=new TanqueBasico(250,250);
+		malos[0]=new TanqueBasico(256,256);
 		gui.getContentPane().add(malos[0].getGrafico());
 		gui.getContentPane().setComponentZOrder(malos[0].getGrafico(),0);
 		ia=new InteligenciaEnemigos(malos,mapa,gui);
@@ -231,14 +232,20 @@ public class General {
 
 	public void disparaJugador(G g) {
 		DisparoJugador d=p.disparar();
-		g.getContentPane().add(d.getGrafico());
-		d.getGrafico().setLocation(d.getPosicion());
-		g.getContentPane().setComponentZOrder(d.getGrafico(),0);
-		hd=new HiloDisparo(d,p.getDireccion(),mapa,g);
-		Thread t=new Thread(hd);
-		t.start();
+		Obstaculo v= mapa.getObjetoEn((int)(d.getPosicion().getX()/64),(int)(d.getPosicion().getY()/64));
+		if (!v.colisionar(d.getVisitor())){
+			g.getContentPane().add(d.getGrafico());
+			d.getGrafico().setLocation(d.getPosicion());
+			g.getContentPane().setComponentZOrder(d.getGrafico(),0);
+			hd=new HiloDisparo(d,p.getDireccion(),mapa,g);
+			Thread t=new Thread(hd);
+			t.start();
+		}
+		else
+			if (v.getVida()==0)
+				mapa.eliminarObs(v.getPosicion());
 	}
-
+	
 	public Jugador getJugador() {
 		// TODO Auto-generated method stub
 		return p;

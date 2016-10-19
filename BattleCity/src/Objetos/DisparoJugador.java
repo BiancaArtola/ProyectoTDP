@@ -36,7 +36,6 @@ public class DisparoJugador extends Disparo {
 		}
 		miVisitor=new VisitorDisparoJugador();
 		velocidad=i;
-		//grafico=new JLabel(new ImageIcon(this.getClass().getResource("/Images/bala.png")));
 		grafico.setSize(64,64);
 		posicion=new Point(x,y);
 	}

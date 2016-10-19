@@ -10,7 +10,20 @@ public class Uno extends Nivel {
 	
 	@Override
 	public DisparoJugador disparar() {
-		DisparoJugador d=new DisparoJugador(64,(int)p.getPosicion().getX()-64,(int)p.getPosicion().getY(),p.getDireccion());
+		int x=(int)p.getPosicion().getX();
+		int y=(int)p.getPosicion().getY();
+		if (p.getDireccion()==0)
+			y=y-64;
+		else
+			if (p.getDireccion()==1)
+				y=y+64;
+			else
+				if (p.getDireccion()==2)
+					x=x-64;
+				else
+					x=x+64;
+		
+		DisparoJugador d=new DisparoJugador(64,x,y,p.getDireccion());
 		return d;
 	}
 
