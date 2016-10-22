@@ -3,8 +3,6 @@ import Objetos.*;
 
 public class VisitorDisparoJugador extends VisitorDisparo{
 
-
-	@Override
 	public boolean VisitarTanque(Tanque t) {
 		return false;
 	}

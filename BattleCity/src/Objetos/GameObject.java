@@ -5,6 +5,7 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.G;
 import Visitores.*;
 /**
  * Clase abstracta GameObject.

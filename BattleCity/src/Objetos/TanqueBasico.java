@@ -12,10 +12,10 @@ public class TanqueBasico extends Enemigo {
 	
 	public TanqueBasico(int i, int j){
 		imagen=new ImageIcon[4];
-		imagen[0]=new ImageIcon(this.getClass().getResource("/Images/up2.png"));
-		imagen[1]=new ImageIcon(this.getClass().getResource("/Images/down2.png"));
-		imagen[2]=new ImageIcon(this.getClass().getResource("/Images/left2.png"));
-		imagen[3]=new ImageIcon(this.getClass().getResource("/Images/right2.png"));
+		imagen[0]=new ImageIcon(this.getClass().getResource("/Images/EnemigoArriba.png"));
+		imagen[1]=new ImageIcon(this.getClass().getResource("/Images/EnemigoAbajo.png"));
+		imagen[2]=new ImageIcon(this.getClass().getResource("/Images/EnemigoIzquierda.png"));
+		imagen[3]=new ImageIcon(this.getClass().getResource("/Images/EnemigoDerecha.png"));
 		puntaje=500;
 		posicion=new Point(i,j);
 		grafico=new JLabel(imagen[0]);

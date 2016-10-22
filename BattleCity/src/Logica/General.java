@@ -86,7 +86,9 @@ public class General {
 					puede= p.colisionar(o.getVisitor());
 					if (puede)
 						mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)-1);
-		}
+					else
+						p.setDireccion(0);
+			}
 			if (puede){
 				p.mover(0);
 			}
@@ -97,6 +99,8 @@ public class General {
 				puede= p.colisionar(o.getVisitor());	
 				if (puede)
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)+1);
+				else 
+					p.setDireccion(1);
 			}
 			if (puede){
 				p.mover(1);}
@@ -108,6 +112,8 @@ public class General {
 				puede= p.colisionar(o.getVisitor());
 				if (puede)
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64)- 1,((int)p.getPosicion().getY()/64));
+				else 
+					p.setDireccion(2);
 			}
 			if (puede){
 				p.mover(2);					
@@ -120,6 +126,8 @@ public class General {
 				puede= p.colisionar(o.getVisitor());
 				if (puede)	
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64));
+				else 
+					p.setDireccion(3);
 			}
 			if (puede){
 				p.mover(3);					
@@ -216,7 +224,6 @@ public class General {
 		/*for (int j=1;j<5;j++){
 			malos[j-1]=new TanqueBasico(r.nextInt(4)*128,r.nextInt(4)*128);
 			}
-
 		for (int i=0;i<malos.length;i++){
 			gui.getContentPane().add(malos[i].getGrafico());
 			gui.getContentPane().setComponentZOrder(malos[i].getGrafico(),0);
@@ -230,24 +237,31 @@ public class General {
 		t.start();
 	}
 
+	/**
+	 * Metodo que hace que el jugador dispare.
+	 * @param g: GUI
+	 */
 	public void disparaJugador(G g) {
-		DisparoJugador d=p.disparar();
-		Obstaculo v= mapa.getObjetoEn((int)(d.getPosicion().getX()/64),(int)(d.getPosicion().getY()/64));
-		if (!v.colisionar(d.getVisitor())){
-			g.getContentPane().add(d.getGrafico());
-			d.getGrafico().setLocation(d.getPosicion());
-			g.getContentPane().setComponentZOrder(d.getGrafico(),0);
-			hd=new HiloDisparo(d,p.getDireccion(),mapa,g);
-			Thread t=new Thread(hd);
-			t.start();
-		}
-		else
-			if (v.getVida()==0)
-				mapa.eliminarObs(v.getPosicion());
-	}
+			//p es de tipo Jugador. d es de tipo disparoJugador(velocidadDisparo, x, y, posicion de la bala)
+			DisparoJugador d = p.disparar();
+			//Obstaculo v contiene el obstaculo que hay en la posicion en la que se desea disparar.
+			Obstaculo v= mapa.getObjetoEn((int)(d.getPosicion().getX()/64),(int)(d.getPosicion().getY()/64));
+			if (!v.colisionar(d.getVisitor())){
+				g.getContentPane().add(d.getGrafico());
+				d.getGrafico().setLocation(d.getPosicion());
+				g.getContentPane().setComponentZOrder(d.getGrafico(),0);
+				hd = new HiloDisparo(d,p.getDireccion(),mapa,g);
+				Thread t = new Thread(hd);
+				t.start();
+			}
+			else{
+				if (v.getVida()==0)
+					mapa.eliminarObs(v.getPosicion());
+			}
+	
+			}
 	
 	public Jugador getJugador() {
-		// TODO Auto-generated method stub
 		return p;
 	}
 }

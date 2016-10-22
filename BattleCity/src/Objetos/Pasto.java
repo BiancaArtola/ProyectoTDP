@@ -4,6 +4,7 @@ import java.awt.Point;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.G;
 import Visitores.*;
 
 /**
@@ -18,25 +19,29 @@ public class Pasto extends Obstaculo {
 	 * @param m: posicion en la cual se ubicara en el mapa el Pasto.
 	 */
 	public Pasto(Point m){
+		
 		imagen=new ImageIcon[4];
 		posicion=m;
 		imagen[0]=new ImageIcon(this.getClass().getResource("/Images/Pasto.png"));;
 		grafico=new JLabel(imagen[0]);
 		grafico.setLocation(m);
 		grafico.setSize(64,64);
-		miVisitor=new VisitorObstaculoTransitable();
+		//g.setComponentZOrder(grafico, 1);
+		miVisitor=new VisitorObstaculoAtravesable();
 	}
+	
 
 	@Override
 	public boolean colisionar(Visitor visitor) {
+		//grafico.setComponentZOrder(getGrafico(), 1);
 		visitor.VisitarObstaculo(this);
 		return false;
 	}
 
 	@Override
 	public boolean recibirDisparo() {
-		return false;
 		
+		return true;
 	}
 	
 	

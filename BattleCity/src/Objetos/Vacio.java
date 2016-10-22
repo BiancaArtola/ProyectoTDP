@@ -31,7 +31,7 @@ public class Vacio extends Obstaculo {
 
 	@Override
 	public boolean recibirDisparo() {
-		return false;		
+		return true;		
 	}
 
 }

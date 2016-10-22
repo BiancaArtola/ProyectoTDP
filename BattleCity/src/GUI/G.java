@@ -20,9 +20,14 @@ import java.util.Random;
  *
  */
 public class G extends JFrame {	
+	/**
+	 * Atributos de la clase G.
+	 * contentPane es el panel en el cual esta contenida la imagen del juego
+	 * juego de tipo general modela el juego.
+	 */
 	private General juego;
 	private JPanel contentPane;
-
+	private int cantDisparos;
 	/**
 	 * Launch the application.
 	 */
@@ -46,64 +51,26 @@ public class G extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1500,1500);
 		this.setExtendedState(this.MAXIMIZED_BOTH);
+		getContentPane().setLayout(null);
+		getContentPane().setLayout(null);
+		//Inicializa la variable juego.
 		juego=new General();
-		getContentPane().setLayout(null);
-		getContentPane().setLayout(null);
+		//Crea el mapa y le pasa la GUI como parametro.
 		juego.crearMapa(this);
-
+		//Crea los enemigos y le pasa la GUI como parametro
 		juego.creaEnemigos(this);
+		
 
-		JLabel puntaje=new JLabel("Puntaje");
-		puntaje.setLocation(1000,700);
-		puntaje.setSize(100,100);
-		this.add(puntaje);
 
-		JButton agregarEnemigo=new JButton("Agregar enemigo");
-		JButton eliminoEnemigo=new JButton("Elimino enemigo");
-		JButton eliminarObstaculo=new JButton("Eliminar obstaculo");
 
-		agregarEnemigo.setFocusable(false);
-		eliminoEnemigo.setFocusable(false);
-		eliminarObstaculo.setFocusable(false);
-
-		agregarEnemigo.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				agregarEnemigo();
-			}
-		});
-
-		eliminoEnemigo.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				eliminarEnemigo();
-				puntaje.setText("Puntaje: "+juego.getScore());
-			}
-
-		});
-
-		eliminarObstaculo.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				destruirObstaculo();
-			}
-		});
-
-		agregarEnemigo.setSize(150,40);
-		agregarEnemigo.setLocation(1000, 400);
-		this.getContentPane().add(agregarEnemigo);
-
-		eliminoEnemigo.setSize(150,40);
-		eliminoEnemigo.setLocation(1000, 500);
-		this.getContentPane().add(eliminoEnemigo);
-
-		eliminarObstaculo.setSize(150,40);
-		eliminarObstaculo.setLocation(1000,600);
-		this.getContentPane().add(eliminarObstaculo);
 
 		
 		JLabel dri=new JLabel("Direccion");
 		dri.setLocation(1000,100);
 		dri.setSize(300,300);
 		this.getContentPane().add(dri);
-
+		
+		//Crea un JLabel con la imagen del jugador.
 		JLabel j=new JLabel(juego.getImagenJugador()[0]);
 
 		this.addKeyListener(new KeyAdapter() {
@@ -127,25 +94,9 @@ public class G extends JFrame {
 		this.getContentPane().add(j);
 		this.getContentPane().setComponentZOrder(j,0);	
 
-		JButton nivel=new JButton("Subir de nivel");
-		nivel.setLocation(1000,800);
-		nivel.setSize(150,40);
-		nivel.setFocusable(false);
-		this.getContentPane().add(nivel);
+		
 
 
-		JLabel lvl=new JLabel("Nivel:");
-		lvl.setSize(150,40);
-		lvl.setLocation(1000,900);
-		this.getContentPane().add(lvl);
-
-
-		nivel.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				int l=juego.subirNivel();
-				lvl.setText("Nivel: "+l);
-			}
-		});
 
 		
 	}
@@ -183,7 +134,11 @@ public class G extends JFrame {
 		juego.destruirObstaculo(r.nextInt(14),r.nextInt(14));
 	}
 	
+	/**
+	 * Metodo que llama a la funcion disparaJugador de Juego cuando se apreta la tecla F.
+	 */
 	public void disparaJugador(){
+		//juego es de tipo general
 		juego.disparaJugador(this);
 		this.repaint();
 	}

@@ -62,6 +62,7 @@ public class Mapa {
 					//JLabel obs2=new JLabel(img2);
 					g6.add(g2.getGrafico());
 					o.addLast(g2);
+
 					break;
 
 				case 'p'://Por cada p que haya en el archivo, se ubicara en la matriz en el lugar correspondiente la imagen Pasto

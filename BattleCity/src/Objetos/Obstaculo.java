@@ -19,6 +19,7 @@ public abstract class Obstaculo extends GameObject {
 	 */
 	public void destruir(){
 		grafico.setIcon(new ImageIcon(this.getClass().getResource("/Images/vacio.png")));
+		
 		miVisitor=new VisitorObstaculoTransitable();
 	}
 	
