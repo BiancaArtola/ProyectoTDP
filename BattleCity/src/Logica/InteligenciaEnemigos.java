@@ -40,6 +40,7 @@ public class InteligenciaEnemigos implements Runnable{
 	 */
 	public void run(){
 		Random r=new Random();
+		Random r1=new Random();
 		int x,y;
 		JLabel j=new JLabel("Vacio");
 		j.setSize(100,50);
@@ -52,9 +53,12 @@ public class InteligenciaEnemigos implements Runnable{
 		boolean puede=true;
 		Obstaculo go=null;
 		ImageIcon i=null;
+		int d;
 		
+		//movDisparoEnemigo disparoEnemigo;
 		//Inicializar enemigo	
 		while(true){
+				d=r1.nextInt(4);
 			//for (int j=0;j<1;j++){
 				int mov=r.nextInt(4);
 				j.setText(String.valueOf(mov));
@@ -123,6 +127,12 @@ public class InteligenciaEnemigos implements Runnable{
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
+					}
+					if (d==3){
+						tanques[0].disparar();
+						//disparoEnemigo=new movDisparoEnemigos();
+						//Thread t=new Thread(disparoEnemigo);
+						//t.run();
 					}
 				
 		}

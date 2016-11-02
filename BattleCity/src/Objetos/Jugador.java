@@ -11,10 +11,12 @@ public class Jugador extends Tanque {
 
 	
 	private Disparo[] disparos;
-	private int cantDestruidos,score,disparossimultaneos,nivel,daire;
+	private int cantDestruidos,score,disparossimultaneos,nivel,daire,vidas;
 	private Nivel lvl;
+	private boolean indestructible;
 	
 	public Jugador(){
+		indestructible=false;
 		imagen=new ImageIcon[4];		
 		disparos=new Disparo[4];
 		cantDestruidos=score=daire=direccion=0;
@@ -23,7 +25,7 @@ public class Jugador extends Tanque {
 		lvl=new Uno(this);
 		//Le asigna una posicion al tanque jugador en el mapa.
 		posicion=new Point(0,0);
-		
+		vidas=4;
 		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevo.png"));
 		this.imagen[1] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoAbajo.png"));
 		this.imagen[2] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoIzquierda.png"));
@@ -43,7 +45,7 @@ public class Jugador extends Tanque {
 	
 	@Override
 	
-	public DisparoJugador disparar() {
+	public DisparoJugador disparar() {		
 		return lvl.disparar();
 	}
 
@@ -79,4 +81,39 @@ public class Jugador extends Tanque {
 		return nivel;
 	}
 
+
+	public void eliminarDisparo(DisparoJugador d) {
+		for (int i=0;i<disparos.length;i++)
+			if (disparos[i]==d)
+				correrDisparo(i);
+	}
+
+
+	private void correrDisparo(int i) {
+		for (int j=i;disparos[j+1]!=null;j++)
+			disparos[j]=disparos[j+1];		
+	}
+
+
+	public int getCantidadDisparos() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public void UnaVidaMas(){
+		vidas++;
+	}
+	public void bajarVida(){
+		vidas--;
+		lvl=new Uno(this);
+	}
+
+
+	public void setIndestructible(boolean b) {
+		indestructible=b;		
+	}
+	
+	public void recibirDisparo(){
+		lvl.recibirDisparo();
+	}
 }

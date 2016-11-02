@@ -26,7 +26,24 @@ public class TanqueBasico extends Enemigo {
 	
 	@Override
 	public Disparo disparar() {
-		return null;
+		//p es de tipo Jugador
+				int x=(int)this.getPosicion().getX();
+				int y=(int)this.getPosicion().getY();
+				
+				if (this.getDireccion()==0)
+					y = y-64; //abajo
+				else
+					if (this.getDireccion()==1)
+						y=y+64; //arriba
+					else
+						if (this.getDireccion()==2)
+							x = x-64; //izquierda
+						else
+							x = x+64; //derecha
+				DisparoJugador d=null;
+				if (this.getCantidadDisparos()==0)		
+					d= new DisparoEnemigo(64,x,y,this.getDireccion());
+				return d;
 	}
 
 	@Override

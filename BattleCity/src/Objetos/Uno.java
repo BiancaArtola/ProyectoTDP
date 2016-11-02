@@ -6,6 +6,7 @@ public class Uno extends Nivel {
 
 	public Uno(Jugador j){
 		p=j;
+		resistencia=1;
 	}
 	
 	public DisparoJugador disparar() {
@@ -23,8 +24,9 @@ public class Uno extends Nivel {
 					x = x-64; //izquierda
 				else
 					x = x+64; //derecha
-		
-		DisparoJugador d = new DisparoJugador(64,x,y,p.getDireccion());
+		DisparoJugador d=null;
+		if (p.getCantidadDisparos()==0)		
+			d= new DisparoJugador(64,x,y,p.getDireccion());
 		return d;
 	}
 
@@ -33,23 +35,23 @@ public class Uno extends Nivel {
 		Point posicion=p.getPosicion();
 		switch (x) {
 		case 0:
-			if(posicion.getY()-64>=0){
-				posicion.setLocation(posicion.getX(),posicion.getY()-64);
+			if(posicion.getY()-8>=0){
+				posicion.setLocation(posicion.getX(),posicion.getY()-8);
 				p.setDireccion(0);}
 			break;
 		case 1:
-			if(posicion.getY()+64<=832){
-				posicion.setLocation(posicion.getX(),posicion.getY()+64);
+			if(posicion.getY()+8<=832){
+				posicion.setLocation(posicion.getX(),posicion.getY()+8);
 				p.setDireccion(1);}
 			break;
 		case 2:
-			if(posicion.getX()-64>=0){
-				posicion.setLocation(posicion.getX()-64,posicion.getY());
+			if(posicion.getX()-8>=0){
+				posicion.setLocation(posicion.getX()-8,posicion.getY());
 				p.setDireccion(2);}
 			break;
 		case 3:
-			if(posicion.getX()+64<=832){
-				posicion.setLocation(posicion.getX()+64,posicion.getY());
+			if(posicion.getX()+8<=832){
+				posicion.setLocation(posicion.getX()+8,posicion.getY());
 				p.setDireccion(3);}
 
 		default:

@@ -78,12 +78,18 @@ public class General {
 	public ImageIcon moverJugador(int valor) {
 		int index=0;
 		Obstaculo o=null;
+		Obstaculo o2=null;
 		boolean puede = false;
 		switch (valor){
 		case KeyEvent.VK_UP:
 				if(p.getPosicion().getY()/64>0){
-					o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)-1);
-					puede= p.colisionar(o.getVisitor());
+					if (p.getPosicion().getY()%64==0){
+						o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)-1);
+						//o2=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64)-1);
+						puede= p.colisionar(o.getVisitor());
+					}
+					else
+						p.mover(0);
 					if (puede)
 						mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)-1);
 					else
@@ -95,8 +101,12 @@ public class General {
 			break;
 		case KeyEvent.VK_DOWN:
 			if (p.getPosicion().getY()/64<13){
-				o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)+1);
-				puede= p.colisionar(o.getVisitor());	
+				if (p.getPosicion().getY()%64==0){
+					o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)+1);
+					puede= p.colisionar(o.getVisitor());
+					}
+				else
+					p.mover(1);
 				if (puede)
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64),((int)p.getPosicion().getY()/64)+1);
 				else 
@@ -108,8 +118,12 @@ public class General {
 			break;
 		case KeyEvent.VK_LEFT:
 			if (p.getPosicion().getX()/64>0){
-				o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)-1,((int)p.getPosicion().getY()/64));
-				puede= p.colisionar(o.getVisitor());
+				if (p.getPosicion().getX()%64==0){
+					o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)-1,((int)p.getPosicion().getY()/64));
+					puede= p.colisionar(o.getVisitor());
+					}
+				else
+					p.mover(2);
 				if (puede)
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64)- 1,((int)p.getPosicion().getY()/64));
 				else 
@@ -122,8 +136,12 @@ public class General {
 			break;
 		case KeyEvent.VK_RIGHT:
 			if (p.getPosicion().getX()/64<13){
-				o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64));
-				puede= p.colisionar(o.getVisitor());
+				if (p.getPosicion().getX()%64==0){
+					o=mapa.getObjetoEn(((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64));
+					puede= p.colisionar(o.getVisitor());
+					}
+				else
+					p.mover(3);
 				if (puede)	
 					mapa.moverDePunto(p.getPosicion(),((int)p.getPosicion().getX()/64)+1,((int)p.getPosicion().getY()/64));
 				else 
@@ -250,7 +268,7 @@ public class General {
 				g.getContentPane().add(d.getGrafico());
 				d.getGrafico().setLocation(d.getPosicion());
 				g.getContentPane().setComponentZOrder(d.getGrafico(),0);
-				hd = new HiloDisparo(d,p.getDireccion(),mapa,g);
+				hd = new HiloDisparo(d,p.getDireccion(),mapa,g,p);
 				Thread t = new Thread(hd);
 				t.start();
 			}

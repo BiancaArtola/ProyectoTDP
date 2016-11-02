@@ -5,30 +5,30 @@ import Objetos.Jugador;
 import Objetos.Obstaculo;
 import Objetos.Tanque;
 
-public class VisitorEstrella extends Visitor {
+public class VisitorTanque extends Visitor {
 
 	@Override
 	public boolean VisitarTanque(Tanque t) {
+		// TODO Auto-generated method stub
 		return true;
-
 	}
 
 	@Override
 	public boolean VisitarObstaculo(Obstaculo o) {
+		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean visitarJugador(Jugador j) {
-		j.subirNivel();
+		j.UnaVidaMas();
 		return true;
-
 	}
 
 	@Override
 	public boolean visitarEnemigo(Enemigo e) {
+		// TODO Auto-generated method stub
 		return true;
-
 	}
 
 	@Override
