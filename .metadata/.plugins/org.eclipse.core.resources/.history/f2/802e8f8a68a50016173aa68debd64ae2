@@ -1,0 +1,144 @@
+package Tanques;
+
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import Niveles.Cuatro;
+import Niveles.Dos;
+import Niveles.Nivel;
+import Niveles.Tres;
+import Niveles.Uno;
+import Objetos.Disparo;
+import Objetos.DisparoJugador;
+import Visitores.Visitor;
+import Visitores.VisitorObstaculoNoTransitable;
+import Visitores.VisitorObstaculoTransitable;
+
+public class Jugador extends Tanque {
+
+	
+	
+	private int cantDestruidos,score,disparossimultaneos,nivel,daire,vidas;
+	private Nivel lvl;
+	private boolean indestructible;
+	
+	public Jugador(){
+		indestructible=false;
+		imagen=new ImageIcon[4];		
+		disparos=new Disparo[4];
+		cantDestruidos=score=daire=direccion=0;
+		disparossimultaneos=nivel=1;
+		//Le asigna el nivel en uno.
+		lvl=new Uno(this);
+		//Le asigna una posicion al tanque jugador en el mapa.
+		posicion=new Point(0,0);
+		vidas=4;
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevo.png"));
+		this.imagen[1] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoAbajo.png"));
+		this.imagen[2] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoIzquierda.png"));
+		this.imagen[3] = new ImageIcon(this.getClass().getResource("/Images/TanqueNuevoDerecha.png"));
+		
+		//Inicialmente se le coloca la imagen de tanqueNuevo
+		grafico=new JLabel();
+		grafico.setIcon(imagen[0]);
+		grafico.setLocation(posicion);
+		grafico.setSize(64,64);
+		miVisitor=new VisitorObstaculoTransitable();
+		r=new Rectangle();
+		r.setBounds(4,4,60,60);
+	}
+	
+	
+	public void mover(int x){
+		lvl.mover(x);
+	}
+	
+	@Override
+	
+	public DisparoJugador disparar() {		
+		return lvl.disparar();
+	}
+
+
+	public boolean colisionar(Visitor visitor) {
+		return visitor.visitarJugador(this);
+	}
+
+	public void aumentarPuntos(int puntaje) {
+		score+=puntaje;
+	}
+
+	public int getScore() {
+		// TODO Auto-generated method stub
+		return score;
+	}
+	
+	public int subirNivel(){
+		nivel++;
+		switch (nivel-1){
+			case 1:
+				lvl=new Dos(this);
+				break;
+			case 2:
+				lvl=new Tres(this);
+				break;
+			case 3:
+				lvl=new Cuatro(this);
+				break;
+			default:
+				nivel--;
+		}
+		return nivel;
+	}
+
+
+	public void eliminarDisparo(DisparoJugador d) {
+		for (int i=0;i<disparos.length;i++)
+			if (disparos[i]==d)
+				correrDisparo(i);
+	}
+
+
+	private void correrDisparo(int i) {
+		for (int j=i;disparos[j+1]!=null;j++)
+			disparos[j]=disparos[j+1];		
+	}
+
+
+	public int getCantidadDisparos() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public void UnaVidaMas(){
+		vidas++;
+	}
+	public void bajarVida(){
+		vidas--;
+		lvl=new Uno(this);
+	}
+
+
+	public void setIndestructible(boolean b) {
+		indestructible=b;		
+	}
+	
+	public void recibirDisparo(){
+		lvl.recibirDisparo();
+	}
+
+
+	public void moverRectangulo(int i) {
+		lvl.moverRectangulo(i);
+		
+	}
+
+
+	public int getVelocidad() {
+		// TODO Auto-generated method stub
+		return lvl.getvelocidad();
+	}
+}

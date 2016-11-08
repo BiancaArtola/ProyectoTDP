@@ -1,7 +1,0 @@
-package PowerUp.copy;
-
-import Objetos.GameObject;
-
-public abstract class PowerUp extends GameObject {
-
-}

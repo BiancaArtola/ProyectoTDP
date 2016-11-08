@@ -1,0 +1,19 @@
+package PU;
+
+import javax.swing.ImageIcon;
+
+import Visitores.Visitor;
+
+public class Casco extends PowerUp {
+
+	public Casco(){
+		miVisitor = new VisitorCasco();
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/Casco.png"));
+	}
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

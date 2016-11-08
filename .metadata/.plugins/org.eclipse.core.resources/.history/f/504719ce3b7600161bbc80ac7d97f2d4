@@ -1,5 +1,0 @@
-package PowerUp.copy;
-
-public class Estrella extends PowerUp {
-
-}

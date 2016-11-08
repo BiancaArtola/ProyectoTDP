@@ -1,0 +1,13 @@
+package PU;
+
+import Visitores.Visitor;
+
+public class TanquePU extends PowerUp {
+
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

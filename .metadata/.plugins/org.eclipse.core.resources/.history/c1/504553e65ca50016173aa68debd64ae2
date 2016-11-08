@@ -1,0 +1,19 @@
+package PU;
+
+import javax.swing.ImageIcon;
+
+import Visitores.Visitor;
+
+public class Timer extends PowerUp {
+	
+	public Timer(){
+		miVisitor = new VisitorTimer();
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/timer.png"));
+	}
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

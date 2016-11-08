@@ -1,0 +1,20 @@
+package PU;
+
+import javax.swing.ImageIcon;
+
+import Visitores.Visitor;
+import Visitores.VisitorPala;
+
+public class Pala extends PowerUp {
+
+	public Pala(){
+		miVisitor = new VisitorPala();
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/Pala.png"));
+	}
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

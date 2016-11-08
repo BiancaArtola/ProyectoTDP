@@ -1,0 +1,19 @@
+package PU;
+
+import javax.swing.ImageIcon;
+
+import Visitores.Visitor;
+
+public class TanquePU extends PowerUp {
+
+	public TanquePU(){
+		miVisitor = new VisitorTanquePU();
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/TanquePU.png"));
+	}
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

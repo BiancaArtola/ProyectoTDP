@@ -1,0 +1,101 @@
+package Niveles;
+
+import java.awt.Point;
+import java.awt.Rectangle;
+
+import Objetos.DisparoJugador;
+import Tanques.Jugador;
+
+/**
+ * Clase abstracta Nivel.
+ * @author Artola, Fiore, Jouglard.
+ *
+ */
+public abstract class Nivel {
+	/**
+	 * Atributos de la clase Nivel
+	 */
+	protected Jugador p;
+	protected int resistencia;
+	protected int velocidadMov;
+	protected int velocidadDis;
+	private int cantDisparos;
+	
+	/**
+	 * Metodo disparar: dependiendo del nivel, los disparos seran diferentes.
+	 * @return Disparo.
+	 */
+	public abstract DisparoJugador disparar();
+	
+
+	public void recibirDisparo() {
+		resistencia--;
+		if (resistencia==0)
+			p.bajarVida();
+	}
+
+	public void moverRectangulo(int i) {
+		Rectangle r=p.getRectangulo();
+		
+		switch(i){
+			case 0:
+				r.setLocation((int)r.getLocation().getX(),(int)r.getLocation().getY()-getvelocidad());
+				break;
+			case 1:
+				r.setLocation((int)r.getLocation().getX(),(int)r.getLocation().getY()+getvelocidad());
+				break;
+			case 2:
+				r.setLocation((int)r.getLocation().getX()-getvelocidad(),(int)r.getLocation().getY());
+				break;
+			case 3:
+				r.setLocation((int)r.getLocation().getX()+getvelocidad(),(int)r.getLocation().getY());
+				break;
+		}
+	}
+
+	public int getvelocidad() {
+		// TODO Auto-generated method stub
+		return velocidadMov;
+	}
+	
+
+	/**
+	 * Metodo mover: dependiendo del nivel, la velocidad del moviemiento del jugador sera diferente.
+	 * @param x: indica hacia donde debe moverse el jugador.
+	 */
+	public void mover(int x) {
+		Point posicion=p.getPosicion();
+		switch (x) {
+		case 0:
+			if(posicion.getY()-velocidadMov>=0){
+				posicion.setLocation(posicion.getX(),posicion.getY()-velocidadMov);
+				p.setDireccion(0);
+				p.moverRectangulo(0);}
+			break;
+		case 1:
+			if(posicion.getY()+velocidadMov<=832){
+				posicion.setLocation(posicion.getX(),posicion.getY()+velocidadMov);
+				p.setDireccion(1);
+				p.moverRectangulo(1);}
+			break;
+		case 2:
+			if(posicion.getX()-velocidadMov>=0){
+				posicion.setLocation(posicion.getX()-velocidadMov,posicion.getY());
+				p.setDireccion(2);
+				p.moverRectangulo(2);}
+			break;
+		case 3:
+			if(posicion.getX()+velocidadMov<=832){
+				posicion.setLocation(posicion.getX()+velocidadMov,posicion.getY());
+				p.setDireccion(3);
+				p.moverRectangulo(3);}
+
+		default:
+			break;
+		}
+
+	}
+
+}
+	
+

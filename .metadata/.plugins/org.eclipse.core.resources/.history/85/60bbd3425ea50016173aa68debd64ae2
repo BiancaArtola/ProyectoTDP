@@ -1,0 +1,28 @@
+package PU;
+
+import javax.swing.ImageIcon;
+
+import Visitores.*;
+
+/**
+ * Clase Estrella, extiende PowerUp.
+ * Modela un tipo de PowerUp llamado Estrella.
+ * @author Artola, Fiore, Jouglard.
+ *
+ */
+public class Estrella extends PowerUp {
+
+	public Estrella(){
+		miVisitor=new VisitorEstrella();
+		this.imagen[0] = new ImageIcon(this.getClass().getResource("/Images/Estrella.png"));
+	}
+
+	@Override
+	public boolean colisionar(Visitor visitor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	
+
+}

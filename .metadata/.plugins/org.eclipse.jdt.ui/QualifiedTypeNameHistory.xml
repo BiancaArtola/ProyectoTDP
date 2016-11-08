@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="Objetos.Jugador"/>
-<fullyQualifiedTypeName name="Objetos.Punto"/>
-<fullyQualifiedTypeName name="Logica.General"/>
-<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="javax.swing.JPanel"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="java.awt.GridLayout"/>
-<fullyQualifiedTypeName name="java.awt.FlowLayout"/>
-<fullyQualifiedTypeName name="java.awt.event.KeyEvent"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
-<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
-<fullyQualifiedTypeName name="java.awt.Container"/>
+<fullyQualifiedTypeName name="Visitores.VisitorCasco"/>
+<fullyQualifiedTypeName name="Visitores.VisitorPala"/>
+<fullyQualifiedTypeName name="Visitores.VisitorTanquePU"/>
+<fullyQualifiedTypeName name="Visitores.VisitorTimer"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+<fullyQualifiedTypeName name="PU.PowerUp"/>
+<fullyQualifiedTypeName name="PU.Estrella"/>
+<fullyQualifiedTypeName name="PU.Granada"/>
+<fullyQualifiedTypeName name="PU.Casco"/>
+<fullyQualifiedTypeName name="PU.Pala"/>
+<fullyQualifiedTypeName name="PU.TanquePU"/>
 <fullyQualifiedTypeName name="java.awt.Point"/>
-<fullyQualifiedTypeName name="Visitores.Visitor"/>
-<fullyQualifiedTypeName name="java.util.Random"/>
-<fullyQualifiedTypeName name="Objetos.GameObject"/>
-<fullyQualifiedTypeName name="Objetos.Obstaculo"/>
-<fullyQualifiedTypeName name="javax.swing.ImageIcon"/>
-<fullyQualifiedTypeName name="GUI.G"/>
+<fullyQualifiedTypeName name="java.util.Timer"/>
+<fullyQualifiedTypeName name="PU.Timer"/>
 </qualifiedTypeNameHistroy>

@@ -1,7 +1,0 @@
-package Tanques;
-
-import Objetos.GameObject;
-
-public abstract class Tanque extends GameObject{
-
-}

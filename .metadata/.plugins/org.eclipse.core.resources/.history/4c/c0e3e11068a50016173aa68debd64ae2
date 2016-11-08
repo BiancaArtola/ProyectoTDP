@@ -1,0 +1,37 @@
+package Niveles;
+
+import java.awt.Point;
+
+import Objetos.DisparoJugador;
+import Tanques.Jugador;
+
+public class Uno extends Nivel {
+
+	public Uno(Jugador j){
+		p=j;
+		resistencia=1;
+		velocidadMov=8;
+		cantDisparos=1;
+	}
+	
+	public DisparoJugador disparar() {
+		//p es de tipo Jugador
+		int x=(int)p.getPosicion().getX();
+		int y=(int)p.getPosicion().getY();
+		
+		if (p.getDireccion()==0)
+			y = y-64; //abajo
+		else
+			if (p.getDireccion()==1)
+				y=y+64; //arriba
+			else
+				if (p.getDireccion()==2)
+					x = x-64; //izquierda
+				else
+					x = x+64; //derecha
+		DisparoJugador d=null;
+		if (p.getCantidadDisparos()==0)		
+			d= new DisparoJugador(8,x,y,p.getDireccion());
+		return d;
+	}
+}
